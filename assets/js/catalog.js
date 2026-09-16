@@ -105,7 +105,7 @@ window.NAS_CATALOG = {
       name: 'Nessaid Calculator',
       tagline: 'A calculator that looks and works like the real thing.',
       short: 'Basic, scientific, programmer and statistics modes on an LCD-style display, with unit, finance and currency tools.',
-      icon: null,
+      icon: '/assets/img/apps/calculator.png',
       status: 'in-development',
       play: null,
       privacy: false,
