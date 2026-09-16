@@ -168,9 +168,12 @@ scrolls sideways and scales them to one height.
 
 - **Website** field on every Play listing: `https://nessaid-android.github.io`
 - **Privacy policy** field: that product's `privacy.html` address.
-- **`app-ads.txt`** goes at the root of this repository, beside `index.html`, once
-  the new AdMob account gives a publisher ID. It holds only the line AdMob gives,
-  with no comments. One file covers every app in the developer account.
+- **`app-ads.txt`** is at the root, beside `index.html`, and lists the new AdMob
+  account, `pub-5158357676798815`. It holds only the lines AdMob gives, with no
+  comments, and one file covers every app whose Play listing names this site.
+  **If Battery Alarm or 2048 Puzzle point their listing here before they move to
+  the new AdMob account**, add the old account's line too, or their ads lose
+  verification: `google.com, pub-3432813586143969, DIRECT, f08c47fec0942fa0`.
 
 ## Still to decide
 

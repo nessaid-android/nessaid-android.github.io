@@ -145,7 +145,7 @@ window.NAS_CATALOG = {
       play: null,
       privacy: false,
       together: true,
-      tags: ['Cards', 'No internet', 'Play nearby'],
+      tags: ['Cards', 'Bluetooth', 'No internet', 'Play nearby'],
       facts: [['Players', '2 to 6, bots fill the rest'], ['Internet', 'Not needed'], ['Connects over', 'Bluetooth, Wi-Fi or Nearby'], ['Real money', 'None'], ['Requires', 'Android 7.0 or later']],
       help: [],
       videos: []
@@ -161,7 +161,7 @@ window.NAS_CATALOG = {
       play: null,
       privacy: false,
       together: true,
-      tags: ['Cards', 'No internet', 'Play nearby'],
+      tags: ['Cards', 'Bluetooth', 'No internet', 'Play nearby'],
       facts: [['Players', '2 to 6, bots fill the rest'], ['Internet', 'Not needed'], ['Connects over', 'Bluetooth, Wi-Fi or Nearby'], ['Real money', 'None'], ['Requires', 'Android 7.0 or later']],
       help: [],
       videos: []
@@ -177,7 +177,7 @@ window.NAS_CATALOG = {
       play: null,
       privacy: false,
       together: true,
-      tags: ['Cards', 'No internet', 'Play nearby'],
+      tags: ['Cards', 'Bluetooth', 'No internet', 'Play nearby'],
       facts: [['Players', '4 or 6, bots fill the rest'], ['Internet', 'Not needed'], ['Connects over', 'Bluetooth or Wi-Fi'], ['Real money', 'None'], ['Requires', 'Android 7.0 or later']],
       help: [],
       videos: []
