@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{TITLE}} - {{NAME}} help</title>
+<meta name="description" content="{{TITLE}}: a {{NAME}} help topic.">
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/css/site.css">
+<script src="/assets/js/layout.js"></script>
+<script src="/assets/js/catalog.js" defer></script>
+<script src="/assets/js/site.js" defer></script>
+</head>
+<body data-product="{{SLUG}}" data-page="help">
+<a class="skip" href="#main">Skip to content</a>
+<header id="site-header" class="site-header"><div class="wrap bar"><a class="brand" href="/">Nessaid Android Studio</a></div></header>
+
+<main id="main" class="page wrap">
+  <nav class="breadcrumbs" aria-label="Breadcrumb">
+    <ol><li><a href="/">Home</a></li><li><a href="/{{SECTION}}/{{SLUG}}/">{{NAME}}</a></li><li><a href="/{{SECTION}}/{{SLUG}}/help/">Help</a></li><li aria-current="page">{{TITLE}}</li></ol>
+  </nav>
+
+  <nav data-product-subnav></nav>
+
+  <article class="doc">
+    <h1>{{TITLE}}</h1>
+    <p class="lede">One sentence on what this topic helps with.</p>
+
+    <!-- A video for this topic, if there is one. Set the YouTube video ID.
+    <div class="yt" data-yt="VIDEO_ID" data-title="{{TITLE}}"></div>
+    -->
+
+    <h2>Before you start</h2>
+    <p>What the reader needs first.</p>
+
+    <h2>Steps</h2>
+    <ol class="steps">
+      <li>First step.</li>
+      <li>Second step.</li>
+    </ol>
+
+    <div class="notice"><strong>Tip:</strong> Something worth knowing.</div>
+
+    <h2>If it does not work</h2>
+    <ul>
+      <li>A common problem and what to do about it.</li>
+    </ul>
+
+    <p><a href="/{{SECTION}}/{{SLUG}}/help/">All {{NAME}} help topics</a></p>
+  </article>
+</main>
+
+<footer id="site-footer"></footer>
+</body>
+</html>

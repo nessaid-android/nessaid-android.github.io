@@ -1,0 +1,413 @@
+/*
+  Nessaid Android Studio - one stylesheet for every page.
+
+  Layout model: mobile-first. The base rules below ARE the mobile layout, and
+  everything wider is written under html[data-layout="desktop"]. That attribute
+  is set before first paint by /assets/js/layout.js, from the visitor's choice
+  (Auto / Mobile / Desktop) or, on Auto, from the window width. So the "toggle
+  on each page" and the responsive behaviour are one mechanism, not two.
+
+  Without JavaScript the attribute is never set and every page gets the mobile
+  layout - a single readable column, which is correct on any screen.
+
+  Colours are tokens on :root, redefined for dark mode. Change the brand here.
+*/
+
+:root {
+  --brand: #2f7d5b;
+  --brand-strong: #226347;
+  --brand-ink: #ffffff;
+  --accent: #e0a526;
+
+  --bg: #f6f7f5;
+  --surface: #ffffff;
+  --surface-2: #eef1ed;
+  --border: #d9ded7;
+  --text: #17201b;
+  --muted: #56615a;
+  --link: #226347;
+
+  --status-available: #2f7d5b;
+  --status-soon: #a56b00;
+  --status-dev: #6a5acd;
+
+  --radius: 14px;
+  --radius-sm: 8px;
+  --shadow: 0 1px 2px rgba(0, 0, 0, .06), 0 4px 16px rgba(0, 0, 0, .05);
+  --gutter: 16px;
+  --max: 1160px;
+  --header-h: 60px;
+
+  --font: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", Ubuntu, sans-serif;
+  --mono: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", monospace;
+
+  color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --brand: #5cc295;
+    --brand-strong: #7fd6ae;
+    --brand-ink: #07140e;
+    --bg: #0f1411;
+    --surface: #171e1a;
+    --surface-2: #1f2823;
+    --border: #2c3731;
+    --text: #e7ede9;
+    --muted: #a3b0a8;
+    --link: #7fd6ae;
+    --status-available: #5cc295;
+    --status-soon: #e7b44d;
+    --status-dev: #a99cf5;
+    --shadow: 0 1px 2px rgba(0, 0, 0, .4);
+  }
+}
+
+/* ---------------------------------------------------------------- base */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; scroll-padding-top: calc(var(--header-h) + 12px); }
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--bg);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+img, video, iframe { max-width: 100%; }
+img { height: auto; }
+
+a { color: var(--link); text-underline-offset: 2px; }
+a:hover { color: var(--brand-strong); }
+
+h1, h2, h3, h4 { line-height: 1.25; margin: 1.4em 0 .5em; }
+h1 { font-size: 1.8rem; margin-top: .4em; }
+h2 { font-size: 1.35rem; }
+h3 { font-size: 1.1rem; }
+p, ul, ol { margin: 0 0 1em; }
+ul, ol { padding-inline-start: 1.3em; }
+li { margin: .25em 0; }
+
+code, kbd { font-family: var(--mono); font-size: .92em; background: var(--surface-2); padding: .1em .35em; border-radius: 4px; }
+
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+.skip {
+  position: absolute; left: -9999px; top: 8px; z-index: 100;
+  background: var(--surface); color: var(--text); padding: 8px 12px; border-radius: var(--radius-sm);
+}
+.skip:focus { left: 8px; }
+
+.visually-hidden {
+  position: absolute !important; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap;
+}
+
+.wrap { width: 100%; max-width: var(--max); margin: 0 auto; padding-inline: var(--gutter); }
+
+/* -------------------------------------------------------------- header */
+
+.site-header {
+  position: sticky; top: 0; z-index: 50;
+  background: color-mix(in srgb, var(--surface) 92%, transparent);
+  backdrop-filter: saturate(1.4) blur(10px);
+  border-bottom: 1px solid var(--border);
+}
+
+.site-header .bar {
+  display: flex; align-items: center; gap: 10px;
+  min-height: var(--header-h);
+}
+
+.brand {
+  display: flex; align-items: center; gap: 10px;
+  font-weight: 700; color: var(--text); text-decoration: none;
+  margin-inline-end: auto; min-width: 0;
+}
+.brand img { width: 34px; height: 34px; flex: none; }
+.brand span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.brand small { display: block; font-weight: 500; font-size: .72rem; color: var(--muted); line-height: 1.1; }
+
+.icon-btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  min-width: 42px; height: 42px; padding: 0 10px;
+  border: 1px solid var(--border); border-radius: 999px;
+  background: var(--surface); color: var(--text);
+  font: inherit; font-size: .88rem; cursor: pointer;
+}
+.icon-btn:hover { background: var(--surface-2); }
+.icon-btn svg { width: 20px; height: 20px; }
+
+/* The nav is a drop-down panel on mobile, a row on desktop. */
+.site-nav { display: none; }
+.site-nav.open {
+  display: block; position: absolute; left: 0; right: 0; top: 100%;
+  background: var(--surface); border-bottom: 1px solid var(--border); box-shadow: var(--shadow);
+}
+.site-nav ul { list-style: none; margin: 0; padding: 8px var(--gutter) 14px; }
+.site-nav a {
+  display: block; padding: 11px 12px; border-radius: var(--radius-sm);
+  color: var(--text); text-decoration: none; font-weight: 500;
+}
+.site-nav a:hover { background: var(--surface-2); }
+.site-nav a[aria-current="page"] { background: var(--surface-2); color: var(--brand-strong); }
+
+/* ------------------------------------------------------- layout toggle */
+
+.view-toggle { display: inline-flex; border: 1px solid var(--border); border-radius: 999px; overflow: hidden; background: var(--surface); }
+.view-toggle button {
+  border: 0; background: transparent; color: var(--muted);
+  font: inherit; font-size: .82rem; padding: 7px 12px; cursor: pointer;
+  display: inline-flex; align-items: center; gap: 5px;
+}
+.view-toggle button svg { width: 16px; height: 16px; }
+.view-toggle button[aria-pressed="true"] { background: var(--brand); color: var(--brand-ink); }
+.view-toggle button + button { border-inline-start: 1px solid var(--border); }
+
+/* On mobile the bar holds only the brand and the menu button - three layout
+   buttons beside a long name do not fit in 360px and pushed the whole page
+   wider than the screen. The toggle lives in the menu panel instead, and in
+   the footer on every layout. On desktop the header shows it directly. */
+.site-header .bar > .view-toggle { display: none; }
+.site-nav .nav-view { padding: 0 calc(var(--gutter) + 12px) 16px; }
+.site-nav .nav-view p { margin: 0 0 6px; font-size: .8rem; color: var(--muted); }
+
+/* ---------------------------------------------------------------- main */
+
+main { flex: 1; width: 100%; }
+.page { padding-block: 20px 48px; }
+
+.breadcrumbs { font-size: .88rem; color: var(--muted); margin-bottom: 8px; }
+.breadcrumbs ol { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 4px; }
+.breadcrumbs li { margin: 0; }
+.breadcrumbs li + li::before { content: "/"; margin-inline-end: 4px; opacity: .6; }
+.breadcrumbs a { color: var(--muted); }
+
+.lede { font-size: 1.08rem; color: var(--muted); }
+
+.hero {
+  background: linear-gradient(135deg, var(--brand) 0%, var(--brand-strong) 100%);
+  color: var(--brand-ink);
+  border-radius: var(--radius);
+  padding: 28px 22px;
+  margin-bottom: 28px;
+}
+.hero h1 { margin: 0 0 .3em; font-size: 1.9rem; }
+.hero p { margin: 0; opacity: .92; }
+.hero .actions { margin-top: 18px; }
+
+.section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin: 28px 0 12px; }
+.section-head h2 { margin: 0; }
+
+.notice {
+  border: 1px solid var(--border); border-left: 4px solid var(--accent);
+  background: var(--surface); border-radius: var(--radius-sm); padding: 12px 14px; margin: 16px 0;
+}
+
+/* -------------------------------------------------------------- buttons */
+
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  min-height: 44px; padding: 10px 18px; border-radius: 999px;
+  border: 1px solid transparent; font: inherit; font-weight: 600; text-decoration: none; cursor: pointer;
+  white-space: nowrap;
+}
+.btn svg { width: 20px; height: 20px; flex: none; }
+.btn-primary { background: var(--brand); color: var(--brand-ink); }
+.btn-primary:hover { background: var(--brand-strong); color: var(--brand-ink); }
+.btn-light { background: var(--brand-ink); color: var(--brand-strong); }
+.btn-outline { border-color: var(--border); background: var(--surface); color: var(--text); }
+.btn-outline:hover { background: var(--surface-2); color: var(--text); }
+.btn[aria-disabled="true"] { opacity: .6; pointer-events: none; }
+.actions { display: flex; flex-wrap: wrap; gap: 10px; }
+
+/* ---------------------------------------------------------------- cards */
+
+.grid { display: grid; grid-template-columns: 1fr; gap: 14px; }
+
+.card {
+  display: flex; gap: 14px; align-items: flex-start;
+  background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 16px; box-shadow: var(--shadow); color: var(--text); text-decoration: none;
+  transition: transform .12s ease, border-color .12s ease;
+}
+a.card:hover { border-color: var(--brand); transform: translateY(-1px); color: var(--text); }
+.card .icon { width: 64px; height: 64px; border-radius: 16px; flex: none; background: var(--surface-2); object-fit: cover; }
+.card h3 { margin: 0 0 4px; font-size: 1.05rem; }
+.card p { margin: 0; color: var(--muted); font-size: .94rem; }
+.card .meta { margin-top: 8px; display: flex; flex-wrap: wrap; gap: 6px; }
+
+.badge {
+  display: inline-block; font-size: .74rem; font-weight: 600; letter-spacing: .02em;
+  padding: 2px 9px; border-radius: 999px; border: 1px solid currentColor;
+}
+.badge.available { color: var(--status-available); }
+.badge.coming-soon { color: var(--status-soon); }
+.badge.in-development { color: var(--status-dev); }
+.tag { font-size: .74rem; color: var(--muted); background: var(--surface-2); padding: 2px 8px; border-radius: 999px; }
+
+/* A generated placeholder icon for products without artwork yet. */
+.icon.icon-fallback {
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: 1.4rem; color: #fff;
+  background: linear-gradient(135deg, #3a9a70, #1f5c42);
+}
+
+/* -------------------------------------------------------- product pages */
+
+.product-hero { display: flex; gap: 16px; align-items: center; margin: 8px 0 18px; }
+.product-hero .icon { width: 84px; height: 84px; border-radius: 20px; flex: none; }
+.product-hero h1, .product-hero .h1-like { margin: 0; font-size: 1.6rem; font-weight: 700; line-height: 1.25; }
+.product-hero .tagline { margin: 2px 0 8px; color: var(--muted); }
+
+.product-layout { display: grid; grid-template-columns: 1fr; gap: 24px; }
+.product-aside .panel { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; margin-bottom: 16px; }
+.product-aside h2 { font-size: 1rem; margin: 0 0 10px; }
+.product-aside ul { list-style: none; padding: 0; margin: 0; }
+.product-aside li { margin: 0; }
+.product-aside li a { display: block; padding: 8px 0; border-bottom: 1px solid var(--border); text-decoration: none; }
+.product-aside li:last-child a { border-bottom: 0; }
+
+.subnav { display: flex; gap: 6px; overflow-x: auto; margin: 0 0 18px; padding-bottom: 4px; }
+.subnav a {
+  flex: none; padding: 8px 14px; border-radius: 999px; border: 1px solid var(--border);
+  background: var(--surface); color: var(--text); text-decoration: none; font-size: .92rem;
+}
+.subnav a[aria-current="page"] { background: var(--brand); border-color: var(--brand); color: var(--brand-ink); }
+
+.facts { display: grid; grid-template-columns: auto 1fr; gap: 6px 14px; margin: 0; font-size: .92rem; }
+.facts dt { color: var(--muted); }
+.facts dd { margin: 0; }
+
+.features { padding-inline-start: 0; list-style: none; }
+.features li { position: relative; padding-inline-start: 26px; }
+.features li::before {
+  content: ""; position: absolute; inset-inline-start: 4px; top: .62em;
+  width: 10px; height: 10px; border-radius: 3px; background: var(--brand);
+}
+
+.screens { display: flex; gap: 12px; overflow-x: auto; padding-bottom: 8px; scroll-snap-type: x mandatory; }
+.screens img { height: 380px; width: auto; border-radius: 12px; border: 1px solid var(--border); scroll-snap-align: start; }
+
+/* ------------------------------------------------------------ help/docs */
+
+.topic-list { list-style: none; padding: 0; display: grid; gap: 10px; }
+.topic-list a {
+  display: block; padding: 14px 16px; background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius-sm); text-decoration: none; color: var(--text);
+}
+.topic-list a:hover { border-color: var(--brand); }
+.topic-list strong { display: block; }
+.topic-list span { color: var(--muted); font-size: .92rem; }
+
+.doc { max-width: 760px; }
+.doc img { border-radius: var(--radius-sm); border: 1px solid var(--border); }
+.doc .steps { counter-reset: step; list-style: none; padding: 0; }
+.doc .steps > li { counter-increment: step; position: relative; padding-inline-start: 40px; margin: 12px 0; }
+.doc .steps > li::before {
+  content: counter(step); position: absolute; inset-inline-start: 0; top: 0;
+  width: 28px; height: 28px; border-radius: 50%; background: var(--brand); color: var(--brand-ink);
+  font-weight: 700; font-size: .9rem; display: flex; align-items: center; justify-content: center;
+}
+
+/* ----------------------------------------------------- YouTube embeds */
+
+.yt {
+  position: relative; aspect-ratio: 16 / 9; max-width: 100%;
+  background: #000 center / cover no-repeat; border-radius: var(--radius); overflow: hidden; margin: 12px 0;
+}
+.yt button {
+  position: absolute; inset: 0; width: 100%; height: 100%; border: 0; cursor: pointer;
+  background: linear-gradient(to top, rgba(0,0,0,.65), rgba(0,0,0,.05) 55%);
+  color: #fff; font: inherit; text-align: start; padding: 14px;
+  display: flex; flex-direction: column; justify-content: flex-end;
+}
+.yt button::after {
+  content: ""; position: absolute; left: 50%; top: 50%; width: 68px; height: 48px; transform: translate(-50%, -50%);
+  border-radius: 12px; background: #e62117 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23fff' d='M8 5v14l11-7z'/%3E%3C/svg%3E") center / 26px no-repeat;
+}
+.yt iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.yt .yt-note { font-size: .78rem; opacity: .85; }
+.video-list { display: grid; grid-template-columns: 1fr; gap: 20px; }
+.video-list h3 { margin: 6px 0 2px; }
+.video-list p { margin: 0; color: var(--muted); font-size: .94rem; }
+
+/* --------------------------------------------------------------- footer */
+
+.site-footer { border-top: 1px solid var(--border); background: var(--surface); font-size: .92rem; }
+.site-footer .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; padding-block: 26px 10px; }
+.site-footer h2 { font-size: .8rem; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); margin: 0 0 8px; }
+.site-footer ul { list-style: none; padding: 0; margin: 0; }
+.site-footer li { margin: 4px 0; }
+.site-footer a { color: var(--text); text-decoration: none; }
+.site-footer a:hover { color: var(--brand-strong); text-decoration: underline; }
+.site-footer .base {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px;
+  border-top: 1px solid var(--border); padding-block: 14px 22px; color: var(--muted);
+}
+.site-footer .brand-col { grid-column: 1 / -1; }
+.site-footer .brand-col p { color: var(--muted); margin: 6px 0 0; }
+
+/* ======================================================================
+   DESKTOP
+   Everything below applies when the layout is desktop: a wide window on
+   Auto, or anyone who pressed "Desktop".
+   ====================================================================== */
+
+html[data-layout="desktop"] {
+  --gutter: 28px;
+  --header-h: 68px;
+}
+
+/* :where() keeps these at element specificity, so a component's own heading
+   size (the side panel, the footer) is not overridden by the desktop default. */
+:where(html[data-layout="desktop"]) body { font-size: 17px; }
+:where(html[data-layout="desktop"]) h1 { font-size: 2.3rem; }
+:where(html[data-layout="desktop"]) h2 { font-size: 1.55rem; }
+
+html[data-layout="desktop"] #menu-button { display: none; }
+html[data-layout="desktop"] .site-nav { display: block; position: static; box-shadow: none; border: 0; background: transparent; }
+html[data-layout="desktop"] .site-nav ul { display: flex; gap: 2px; padding: 0; }
+html[data-layout="desktop"] .site-nav a { padding: 8px 14px; }
+html[data-layout="desktop"] .site-header .bar > .view-toggle { display: inline-flex; }
+html[data-layout="desktop"] .site-nav .nav-view { display: none; }
+html[data-layout="desktop"] .brand img { width: 40px; height: 40px; }
+
+html[data-layout="desktop"] .page { padding-block: 32px 72px; }
+html[data-layout="desktop"] .hero { padding: 56px 48px; margin-bottom: 40px; }
+html[data-layout="desktop"] .hero h1 { font-size: 2.8rem; }
+html[data-layout="desktop"] .hero p { font-size: 1.15rem; max-width: 680px; }
+
+html[data-layout="desktop"] .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+html[data-layout="desktop"] .grid.grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+html[data-layout="desktop"] .card { padding: 20px; }
+
+html[data-layout="desktop"] .product-hero .icon { width: 112px; height: 112px; border-radius: 26px; }
+html[data-layout="desktop"] .product-layout { grid-template-columns: minmax(0, 1fr) 300px; gap: 40px; align-items: start; }
+html[data-layout="desktop"] .product-aside { position: sticky; top: calc(var(--header-h) + 20px); }
+
+html[data-layout="desktop"] .topic-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+html[data-layout="desktop"] .video-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+html[data-layout="desktop"] .screens img { height: 460px; }
+
+html[data-layout="desktop"] .site-footer .cols { grid-template-columns: 2fr 1fr 1fr 1fr; }
+html[data-layout="desktop"] .site-footer .brand-col { grid-column: auto; }
+
+/* Forced mobile on a wide screen: keep the phone-width column centred, so
+   "Mobile" previews what a phone shows rather than a stretched page. */
+html[data-layout="mobile"][data-view-pref="mobile"] body { max-width: 480px; margin: 0 auto; box-shadow: 0 0 0 1px var(--border); }
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; scroll-behavior: auto !important; }
+}
+
+@media print {
+  .site-header, .site-footer, .view-toggle, .subnav { display: none !important; }
+}

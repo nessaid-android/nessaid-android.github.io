@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Nessaid Android Studio">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3a9a70"/>
+      <stop offset="1" stop-color="#1f5c42"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="15" fill="url(#g)"/>
+  <path d="M19 47V17h5.2l15.6 20.6V17H45v30h-5.2L24.2 26.4V47z" fill="#fff"/>
+  <circle cx="49.5" cy="14.5" r="4" fill="#e0a526"/>
+</svg>

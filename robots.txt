@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /templates/
+Disallow: /tools/
+
+Sitemap: https://nessaid-android.github.io/sitemap.xml
