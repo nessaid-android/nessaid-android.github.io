@@ -22,6 +22,8 @@
     play      Android package name once it is on Google Play, else null.
               The Play button appears only when this is set.
     privacy   true when /<section>/<slug>/privacy.html exists
+    together  true for the games friends play on nearby phones with no internet;
+              these are what /play-together/ lists
     tags      a few words for the cards
     facts     [label, value] pairs for the Details panel
     help      [{ slug, title, summary }] - each is /<section>/<slug>/help/<topic slug>.html
@@ -44,6 +46,7 @@ window.NAS_CATALOG = {
     { label: 'Home', href: '/' },
     { label: 'Apps', href: '/apps/' },
     { label: 'Games', href: '/games/' },
+    { label: 'Play together', href: '/play-together/' },
     { label: 'Help', href: '/help/' }
   ],
 
@@ -134,45 +137,48 @@ window.NAS_CATALOG = {
     {
       slug: 'rummy',
       section: 'games',
-      name: 'Rummy',
-      tagline: 'Indian 13-card rummy around one table of phones.',
-      short: 'Indian 13-card rummy for two to six players on phones in the same room, with bots to fill empty seats.',
-      icon: null,
+      name: 'Rummy Express',
+      tagline: 'Indian 13-card rummy for the journey. No internet needed.',
+      short: 'Indian 13-card rummy for two to six friends on their own phones, on a train, a bus or in the same room. No internet, no sign-in.',
+      icon: '/assets/img/games/rummy.png',
       status: 'in-development',
       play: null,
       privacy: false,
-      tags: ['Cards', 'Local multiplayer'],
-      facts: [['Requires', 'Android 7.0 or later'], ['Players', '2 to 6'], ['Real money', 'None']],
+      together: true,
+      tags: ['Cards', 'No internet', 'Play nearby'],
+      facts: [['Players', '2 to 6, bots fill the rest'], ['Internet', 'Not needed'], ['Connects over', 'Bluetooth, Wi-Fi or Nearby'], ['Real money', 'None'], ['Requires', 'Android 7.0 or later']],
       help: [],
       videos: []
     },
     {
       slug: 'teen-patti',
       section: 'games',
-      name: 'Teen Patti',
-      tagline: 'Three cards, blind or seen, on phones around the room.',
-      short: 'Classic three-card Teen Patti for two to six nearby phones, played for chips that are only ever part of the game.',
-      icon: null,
+      name: 'Teen Patti Express',
+      tagline: 'Three cards, blind or seen, all the way to your stop.',
+      short: 'Classic three-card Teen Patti for two to six nearby phones, with no internet and chips that are only ever part of the game.',
+      icon: '/assets/img/games/teen-patti.png',
       status: 'in-development',
       play: null,
       privacy: false,
-      tags: ['Cards', 'Local multiplayer'],
-      facts: [['Requires', 'Android 7.0 or later'], ['Players', '2 to 6'], ['Real money', 'None']],
+      together: true,
+      tags: ['Cards', 'No internet', 'Play nearby'],
+      facts: [['Players', '2 to 6, bots fill the rest'], ['Internet', 'Not needed'], ['Connects over', 'Bluetooth, Wi-Fi or Nearby'], ['Real money', 'None'], ['Requires', 'Android 7.0 or later']],
       help: [],
       videos: []
     },
     {
       slug: 'twenty-eight',
       section: 'games',
-      name: 'Twenty Eight',
-      tagline: 'The trick-taking game of Kerala, bid, trump and all.',
-      short: 'Twenty-eight for four players in two pairs or six in two threes, on nearby phones, with bots to fill empty seats.',
-      icon: null,
+      name: 'Twenty Eight Express',
+      tagline: 'The trick-taking game of Kerala, for the whole compartment.',
+      short: 'Twenty-eight for four players in two pairs or six in two teams, on nearby phones with no internet, and bots for any empty seat.',
+      icon: '/assets/img/games/twenty-eight.png',
       status: 'in-development',
       play: null,
       privacy: false,
-      tags: ['Cards', 'Local multiplayer'],
-      facts: [['Requires', 'Android 7.0 or later'], ['Players', '4 or 6'], ['Real money', 'None']],
+      together: true,
+      tags: ['Cards', 'No internet', 'Play nearby'],
+      facts: [['Players', '4 or 6, bots fill the rest'], ['Internet', 'Not needed'], ['Connects over', 'Bluetooth or Wi-Fi'], ['Real money', 'None'], ['Requires', 'Android 7.0 or later']],
       help: [],
       videos: []
     }

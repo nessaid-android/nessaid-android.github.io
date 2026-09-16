@@ -68,8 +68,12 @@
   function privacyUrl(p) { return p.privacy ? productUrl(p) + 'privacy.html' : null; }
   function playUrl(p) { return p.play ? 'https://play.google.com/store/apps/details?id=' + encodeURIComponent(p.play) : null; }
 
+  // 'apps', 'games', 'all', or 'together' - the games played on nearby phones.
   function bySection(section) {
-    return C.products.filter(function (p) { return section === 'all' || p.section === section; });
+    return C.products.filter(function (p) {
+      if (section === 'together') return p.together === true;
+      return section === 'all' || p.section === section;
+    });
   }
 
   function find(slug) {
