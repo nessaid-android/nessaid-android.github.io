@@ -176,7 +176,10 @@ scrolls sideways and scales them to one height.
 
 - **Privacy policies** exist for Battery Alarm and 2048 Puzzle only. Each other
   product needs one before it goes on Play.
-- **Icons** exist for Battery Alarm and 2048 Puzzle; the rest show their initials.
+- **Icons** exist for Battery Alarm, Alarm Clock Ultimate, Location Alarm and
+  2048 Puzzle; the rest show their initials. Each app repo that has one makes it
+  with its own tooling into `publishing/store-assets/icon-512.png`; copy that file
+  here when it changes.
 - **Rummy, Teen Patti and Twenty Eight** have package names under
   `io.github.saithalavi`. A package name cannot change once published, so decide
   before their first release whether they should move under `com.nessaid`.
