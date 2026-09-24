@@ -111,12 +111,17 @@ videos: [
 ],
 ```
 
+For a YouTube Short (youtube.com/shorts/ID), add `short: true` so it plays in a
+vertical frame.
+
 It appears on the product's Videos page. To put a video inside a help topic or on
 the product page instead, add:
 
 ```html
 <div class="yt" data-yt="dQw4w9WgXcQ" data-title="Set an alarm in 60 seconds"></div>
 ```
+
+(`class="yt short"` for a Short.)
 
 Videos show as a thumbnail and load nothing from YouTube until someone presses
 play, and then from YouTube's privacy-enhanced domain. The website privacy page
@@ -177,8 +182,8 @@ scrolls sideways and scales them to one height.
 
 ## Still to decide
 
-- **Privacy policies** exist for Battery Alarm and 2048 Puzzle only. Each other
-  product needs one before it goes on Play.
+- **Privacy policies** exist for Battery Alarm, 2048 Puzzle and BB Roll only.
+  Each other product needs one before it goes on Play.
 - **Icons** exist for every product. Each comes from its own repo's
   `publishing/store-assets/icon-512.png` (the card games' from
   `phonenet/games/<game>/publishing/`, drawn by `games/tools/card_icons.py`); copy

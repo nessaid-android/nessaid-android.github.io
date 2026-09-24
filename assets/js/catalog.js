@@ -27,7 +27,8 @@
     tags      a few words for the cards
     facts     [label, value] pairs for the Details panel
     help      [{ slug, title, summary }] - each is /<section>/<slug>/help/<topic slug>.html
-    videos    [{ youtube: 'VIDEO_ID', title, summary }]
+    videos    [{ youtube: 'VIDEO_ID', title, summary, short }] - short: true for
+              a vertical YouTube Short
 
   Adding a help topic or a video is one entry here plus, for a topic, one
   page made from /templates/help-topic.html. See README.md.
@@ -133,6 +134,24 @@ window.NAS_CATALOG = {
       facts: [['Requires', 'Android 8.0 or later'], ['Languages', '9'], ['Price', 'Free, contains ads']],
       help: [],
       videos: []
+    },
+    {
+      slug: 'bb-roll',
+      section: 'games',
+      name: 'BB Roll',
+      tagline: 'Tilt the phone. Roll the bearings home.',
+      short: 'The dexterity puzzle from the back of a drawer, rebuilt as real rolling physics: steel, nylon, plastic or wooden balls on a tilting dial.',
+      icon: '/assets/img/games/bb-roll.png',
+      status: 'available',
+      play: 'com.nessaid.bbroll',
+      privacy: true,
+      tags: ['Puzzle', 'Single player'],
+      facts: [['Requires', 'Android 8.0 or later'], ['Languages', '25'], ['Price', 'Free, contains ads']],
+      help: [],
+      videos: [
+        { youtube: 'pAgDMfkE7fw', short: true, title: 'How to play', summary: 'Tilting, the levels, the materials, and getting every ball home.' },
+        { youtube: 'sMji9NY-gN4', short: true, title: 'A whole game, start to finish', summary: 'Medium solved on a real phone, then a go at Impossible.' }
+      ]
     },
     {
       slug: 'rummy',

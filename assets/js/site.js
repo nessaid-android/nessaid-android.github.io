@@ -345,7 +345,7 @@
     host.classList.add('video-list');
     p.videos.forEach(function (v) {
       host.appendChild(el('article', null, [
-        el('div', { class: 'yt', 'data-yt': v.youtube, 'data-title': v.title }),
+        el('div', { class: v.short ? 'yt short' : 'yt', 'data-yt': v.youtube, 'data-title': v.title }),
         el('h3', { text: v.title }),
         el('p', { text: v.summary || '' })
       ]));
