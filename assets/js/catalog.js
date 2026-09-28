@@ -112,11 +112,13 @@ window.NAS_CATALOG = {
       icon: '/assets/img/apps/calculator.png',
       status: 'in-development',
       play: null,
-      privacy: false,
+      privacy: true,
       tags: ['Maths', 'Finance'],
       facts: [['Requires', 'Android 8.0 or later'], ['Languages', '13']],
       help: [],
-      videos: []
+      videos: [
+        { id: 'wZpLR8kllew', title: 'Nessaid Calculator', summary: 'Four calculators, converters and finance, on a display built like the real thing.', short: true }
+      ]
     },
 
     // ------------------------------------------------------------ games

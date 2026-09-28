@@ -1,0 +1,2 @@
+# Chrome writes this when it is used headless to render pages.
+debug.log
