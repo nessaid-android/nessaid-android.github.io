@@ -182,7 +182,8 @@ scrolls sideways and scales them to one height.
 
 ## Still to decide
 
-- **Privacy policies** exist for Battery Alarm, 2048 Puzzle and BB Roll only.
+- **Privacy policies** exist for Battery Alarm, Alarm Clock Ultimate, Location
+  Alarm, 2048 Puzzle and BB Roll only.
   Each other product needs one before it goes on Play.
 - **Icons** exist for every product. Each comes from its own repo's
   `publishing/store-assets/icon-512.png` (the card games' from
