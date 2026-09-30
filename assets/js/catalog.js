@@ -101,7 +101,10 @@ window.NAS_CATALOG = {
       tags: ['Location', 'Travel'],
       facts: [['Requires', 'Android 8.0 or later'], ['Languages', '26']],
       help: [],
-      videos: []
+      videos: [
+        { youtube: '5we4YotS2sE', short: true, title: 'What it does',
+          summary: 'Choosing a place on the map and setting how close counts as arriving, watching with the distance counting down, and the alarm taking over the lock screen on arrival.' }
+      ]
     },
     {
       slug: 'calculator',
