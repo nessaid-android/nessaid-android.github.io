@@ -120,7 +120,8 @@ window.NAS_CATALOG = {
       facts: [['Requires', 'Android 8.0 or later'], ['Languages', '13']],
       help: [],
       videos: [
-        { id: 'wZpLR8kllew', title: 'Nessaid Calculator', summary: 'Four calculators, converters and finance, on a display built like the real thing.', short: true }
+        { youtube: 'wZpLR8kllew', short: true, title: 'Nessaid Calculator',
+          summary: 'Four calculators, converters and finance, on a display built like the real thing.' }
       ]
     },
 
