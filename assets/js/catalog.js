@@ -86,7 +86,10 @@ window.NAS_CATALOG = {
       tags: ['Alarms', 'Timers'],
       facts: [['Requires', 'Android 8.0 or later'], ['Languages', '26']],
       help: [],
-      videos: []
+      videos: [
+        { youtube: 'Iz8Y4YYSXMU', short: true, title: 'What it does',
+          summary: 'Alarms and when each rings next, one alarm\'s own settings and repeat rule, timers and stopwatches, and an alarm ringing over the lock screen.' }
+      ]
     },
     {
       slug: 'location-alarm',
