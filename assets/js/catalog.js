@@ -296,7 +296,10 @@ window.NAS_CATALOG = {
       tags: ['Arcade', 'Single player'],
       facts: [['Modes', 'Classic, Random Jungle, Arcade'], ['Climbers', 'A dozen, egg or duckling'], ['Requires', 'Android 8.0 or later'], ['Languages', '26']],
       help: [],
-      videos: []
+      videos: [
+        { youtube: 'BGHdBRZK9lU', short: true, title: 'Hop an egg or a duckling up the tree',
+          summary: 'Eight hops, one miss: tap to send the climber straight up as the baskets slide underneath.' }
+      ]
     },
     {
       slug: 'bb-roll',
