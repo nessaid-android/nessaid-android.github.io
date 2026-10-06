@@ -292,9 +292,9 @@ window.NAS_CATALOG = {
       icon: '/assets/img/games/nest-hoppers.png',
       status: 'in-development',
       play: null,
-      privacy: false,
+      privacy: true,
       tags: ['Arcade', 'Single player'],
-      facts: [['Modes', 'Classic, Random Jungle, Arcade'], ['Climbers', 'A dozen, egg or duckling'], ['Requires', 'Android 8.0 or later'], ['Languages', '25']],
+      facts: [['Modes', 'Classic, Random Jungle, Arcade'], ['Climbers', 'A dozen, egg or duckling'], ['Requires', 'Android 8.0 or later'], ['Languages', '26']],
       help: [],
       videos: []
     },
