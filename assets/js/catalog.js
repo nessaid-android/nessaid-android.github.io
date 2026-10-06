@@ -2,8 +2,9 @@
   The catalog: the one place a product's name, short description, status,
   Play link, help topics and videos are written down.
 
-  Everything that lists products reads this - the home page, /apps/, /games/,
-  the footer, the help centre and each product page's header and side panel.
+  Everything that lists products reads this - the home page, /apps/, /cards/,
+  /games/, the footer, the help centre and each product page's header and side
+  panel.
   Change a name or a status here and every page agrees.
 
   What is NOT here: a product's long description, features and screenshots.
@@ -11,9 +12,11 @@
   JavaScript and search engines index them.
 
   Fields
-    slug      folder name under /apps/ or /games/. Never change it once a Play
-              listing or a link points at it.
-    section   'apps' or 'games'
+    slug      folder name under /apps/, /cards/ or /games/. Never change it once
+              a Play listing or a link points at it.
+    section   'apps', 'cards' (the card-table games) or 'games' (everything
+              else: puzzles, arcade and the rest). The section is the URL, so
+              moving a product between them moves its pages too.
     name      display name
     tagline   one line under the name on the product page
     short     one or two sentences, for cards
@@ -23,7 +26,8 @@
               The Play button appears only when this is set.
     privacy   true when /<section>/<slug>/privacy.html exists
     together  true for the games friends play on nearby phones with no internet;
-              these are what /play-together/ lists
+              these are what /play-together/ lists. Every card game is one, and
+              so is Blank Atlas, which is not a card game
     tags      a few words for the cards
     facts     [label, value] pairs for the Details panel
     help      [{ slug, title, summary }] - each is /<section>/<slug>/help/<topic slug>.html
@@ -46,13 +50,16 @@ window.NAS_CATALOG = {
   nav: [
     { label: 'Home', href: '/' },
     { label: 'Apps', href: '/apps/' },
+    { label: 'Card games', href: '/cards/' },
     { label: 'Games', href: '/games/' },
     { label: 'Play together', href: '/play-together/' },
     { label: 'Help', href: '/help/' }
   ],
 
+  // The order here is the order the footer and the help centre use.
   sections: {
     apps: { title: 'Apps' },
+    cards: { title: 'Card games' },
     games: { title: 'Games' }
   },
 
@@ -128,7 +135,109 @@ window.NAS_CATALOG = {
       ]
     },
 
+    // ------------------------------------------------------------ cards
+    // Card-table games, all built on the shared card table, all played on
+    // nearby phones with no internet. See /play-together/.
+    {
+      slug: 'rummy',
+      section: 'cards',
+      name: 'Rummy Express',
+      tagline: 'Indian 13-card rummy for the journey. No internet needed.',
+      short: 'Indian 13-card rummy for two to six friends on their own phones, on a train, a bus or in the same room. No internet, no sign-in.',
+      icon: '/assets/img/cards/rummy.png',
+      status: 'in-development',
+      play: null,
+      privacy: false,
+      together: true,
+      tags: ['Cards', 'Bluetooth', 'No internet', 'Play nearby'],
+      facts: [['Players', '2 to 6, bots fill the rest'], ['Internet', 'Not needed'], ['Connects over', 'Bluetooth, Wi-Fi or Nearby'], ['Real money', 'None'], ['Requires', 'Android 7.0 or later']],
+      help: [],
+      videos: []
+    },
+    {
+      slug: 'teen-patti',
+      section: 'cards',
+      name: 'Teen Patti Express',
+      tagline: 'Three cards, blind or seen, all the way to your stop.',
+      short: 'Classic three-card Teen Patti for two to six nearby phones, with no internet and chips that are only ever part of the game.',
+      icon: '/assets/img/cards/teen-patti.png',
+      status: 'in-development',
+      play: null,
+      privacy: false,
+      together: true,
+      tags: ['Cards', 'Bluetooth', 'No internet', 'Play nearby'],
+      facts: [['Players', '2 to 6, bots fill the rest'], ['Internet', 'Not needed'], ['Connects over', 'Bluetooth, Wi-Fi or Nearby'], ['Real money', 'None'], ['Requires', 'Android 7.0 or later']],
+      help: [],
+      videos: []
+    },
+    {
+      slug: 'twenty-eight',
+      section: 'cards',
+      name: 'Twenty Eight Express',
+      tagline: 'The trick-taking game of Kerala, for the whole compartment.',
+      short: 'Twenty-eight for four players in two pairs or six in two teams, on nearby phones with no internet, and bots for any empty seat.',
+      icon: '/assets/img/cards/twenty-eight.png',
+      status: 'in-development',
+      play: null,
+      privacy: false,
+      together: true,
+      tags: ['Cards', 'Bluetooth', 'No internet', 'Play nearby'],
+      facts: [['Players', '4 or 6, bots fill the rest'], ['Internet', 'Not needed'], ['Connects over', 'Bluetooth or Wi-Fi'], ['Real money', 'None'], ['Requires', 'Android 7.0 or later']],
+      help: [],
+      videos: []
+    },
+    {
+      slug: 'callbreak',
+      section: 'cards',
+      name: 'Call Break Express',
+      tagline: 'Spades are trumps. Call your tricks and live with it.',
+      short: 'Call Break for four players, each for themselves, on nearby phones: spades are always trumps, everybody calls the tricks they will take, and a call missed costs.',
+      icon: '/assets/img/cards/callbreak.png',
+      status: 'in-development',
+      play: null,
+      privacy: false,
+      together: true,
+      tags: ['Cards', 'Bluetooth', 'No internet', 'Play nearby'],
+      facts: [['Players', '4, bots fill the rest'], ['Internet', 'Not needed'], ['Connects over', 'Bluetooth, Wi-Fi or Nearby'], ['Real money', 'None'], ['Requires', 'Android 7.0 or later']],
+      help: [],
+      videos: []
+    },
+    {
+      slug: 'poker',
+      section: 'cards',
+      name: 'Poker Express',
+      tagline: 'No-limit hold’em for the table you are already sitting at.',
+      short: 'No-limit Texas hold’em for two to eight nearby phones: blinds, four rounds of betting and a showdown, with chips that are only ever part of the game.',
+      icon: '/assets/img/cards/poker.png',
+      status: 'in-development',
+      play: null,
+      privacy: false,
+      together: true,
+      tags: ['Cards', 'Bluetooth', 'No internet', 'Play nearby'],
+      facts: [['Players', '2 to 8, bots fill the rest'], ['Internet', 'Not needed'], ['Connects over', 'Bluetooth, Wi-Fi or Nearby'], ['Real money', 'None'], ['Requires', 'Android 7.0 or later']],
+      help: [],
+      videos: []
+    },
+    {
+      slug: 'bridge',
+      section: 'cards',
+      name: 'Bridge Express',
+      tagline: 'Contract bridge for four phones, in two pairs.',
+      short: 'Contract bridge for four players in two pairs on their own phones: an auction for the contract, dummy face up, and scoring deal by deal, the Chicago way.',
+      icon: '/assets/img/cards/bridge.png',
+      status: 'in-development',
+      play: null,
+      privacy: false,
+      together: true,
+      tags: ['Cards', 'Bluetooth', 'No internet', 'Play nearby'],
+      facts: [['Players', '4 in two pairs, bots fill the rest'], ['Internet', 'Not needed'], ['Connects over', 'Bluetooth, Wi-Fi or Nearby'], ['Real money', 'None'], ['Requires', 'Android 7.0 or later']],
+      help: [],
+      videos: []
+    },
+
     // ------------------------------------------------------------ games
+    // Puzzles, arcade games and everything not played with a pack of cards.
+    // Blank Atlas is here and is also a 'together' game.
     {
       slug: '2048-puzzle',
       section: 'games',
@@ -141,6 +250,51 @@ window.NAS_CATALOG = {
       privacy: true,
       tags: ['Puzzle', 'Single player'],
       facts: [['Requires', 'Android 8.0 or later'], ['Languages', '9'], ['Price', 'Free, contains ads']],
+      help: [],
+      videos: []
+    },
+    {
+      slug: 'brick-game',
+      section: 'games',
+      name: 'Nessaid Brick Game',
+      tagline: 'The 9999-in-1 handheld, button for button.',
+      short: 'The brick handheld rebuilt as an app: a cell-matrix LCD, the buttons around it, and sixteen games, from Tetris and Snake to Race, Tank and Breaker.',
+      icon: null,
+      status: 'in-development',
+      play: null,
+      privacy: false,
+      tags: ['Arcade', 'Retro', 'Single player'],
+      facts: [['Games', '16'], ['Screen', '10x14 up to 14x28 cells'], ['Requires', 'Android 8.0 or later'], ['Languages', '13']],
+      help: [],
+      videos: []
+    },
+    {
+      slug: 'archery',
+      section: 'games',
+      name: 'Archery',
+      tagline: 'Read the flags. Hold for the drop. Loose.',
+      short: 'A target down the range, a flag at each end showing the wind, and an arrow that gravity pulls down while the wind pushes it sideways. Six ends of three arrows, and four bows.',
+      icon: null,
+      status: 'in-development',
+      play: null,
+      privacy: false,
+      tags: ['Sports', 'Single player'],
+      facts: [['A game', 'Six ends of three arrows'], ['Bows', 'Crude, professional, recurve, compound'], ['Ranges', '18 m to 70 m, on the real face for each'], ['Requires', 'Android 8.0 or later'], ['Languages', 'English']],
+      help: [],
+      videos: []
+    },
+    {
+      slug: 'nest-hoppers',
+      section: 'games',
+      name: 'Nest Hoppers',
+      tagline: 'Up the tree, basket by basket.',
+      short: 'A tree, baskets hung a row apart, and an egg - or a duckling - that hops straight up from one to the next while they slide underneath. Twelve of them, ten points a basket.',
+      icon: '/assets/img/games/nest-hoppers.png',
+      status: 'in-development',
+      play: null,
+      privacy: false,
+      tags: ['Arcade', 'Single player'],
+      facts: [['Modes', 'Classic, Random Jungle, Arcade'], ['Climbers', 'A dozen, egg or duckling'], ['Requires', 'Android 8.0 or later'], ['Languages', '25']],
       help: [],
       videos: []
     },
@@ -163,50 +317,33 @@ window.NAS_CATALOG = {
       ]
     },
     {
-      slug: 'rummy',
+      slug: 'marble-solitaire',
       section: 'games',
-      name: 'Rummy Express',
-      tagline: 'Indian 13-card rummy for the journey. No internet needed.',
-      short: 'Indian 13-card rummy for two to six friends on their own phones, on a train, a bus or in the same room. No internet, no sign-in.',
-      icon: '/assets/img/games/rummy.png',
+      name: 'Marble Solitaire',
+      tagline: 'Jump to take. End with one.',
+      short: 'The old wooden board: a cross of holes, a glass marble in each but one. Jump to take, and finish with a single marble. Five boards, undo, redo and a hint.',
+      icon: null,
       status: 'in-development',
       play: null,
       privacy: false,
-      together: true,
-      tags: ['Cards', 'Bluetooth', 'No internet', 'Play nearby'],
-      facts: [['Players', '2 to 6, bots fill the rest'], ['Internet', 'Not needed'], ['Connects over', 'Bluetooth, Wi-Fi or Nearby'], ['Real money', 'None'], ['Requires', 'Android 7.0 or later']],
+      tags: ['Puzzle', 'Single player'],
+      facts: [['Boards', '5, each keeping its own game'], ['Requires', 'Android 8.0 or later'], ['Languages', 'English']],
       help: [],
       videos: []
     },
     {
-      slug: 'teen-patti',
+      slug: 'blank-atlas',
       section: 'games',
-      name: 'Teen Patti Express',
-      tagline: 'Three cards, blind or seen, all the way to your stop.',
-      short: 'Classic three-card Teen Patti for two to six nearby phones, with no internet and chips that are only ever part of the game.',
-      icon: '/assets/img/games/teen-patti.png',
+      name: 'Blank Atlas',
+      tagline: 'Every name rubbed off the map. Find the place.',
+      short: 'A map with no labels: find the country, find the capital, drop a pin as close as you can. Alone, or at a table of nearby phones with no internet.',
+      icon: null,
       status: 'in-development',
       play: null,
       privacy: false,
       together: true,
-      tags: ['Cards', 'Bluetooth', 'No internet', 'Play nearby'],
-      facts: [['Players', '2 to 6, bots fill the rest'], ['Internet', 'Not needed'], ['Connects over', 'Bluetooth, Wi-Fi or Nearby'], ['Real money', 'None'], ['Requires', 'Android 7.0 or later']],
-      help: [],
-      videos: []
-    },
-    {
-      slug: 'twenty-eight',
-      section: 'games',
-      name: 'Twenty Eight Express',
-      tagline: 'The trick-taking game of Kerala, for the whole compartment.',
-      short: 'Twenty-eight for four players in two pairs or six in two teams, on nearby phones with no internet, and bots for any empty seat.',
-      icon: '/assets/img/games/twenty-eight.png',
-      status: 'in-development',
-      play: null,
-      privacy: false,
-      together: true,
-      tags: ['Cards', 'Bluetooth', 'No internet', 'Play nearby'],
-      facts: [['Players', '4 or 6, bots fill the rest'], ['Internet', 'Not needed'], ['Connects over', 'Bluetooth or Wi-Fi'], ['Real money', 'None'], ['Requires', 'Android 7.0 or later']],
+      tags: ['Geography', 'Play nearby', 'No internet'],
+      facts: [['Players', '1, or a table of nearby phones'], ['The atlas', '198 countries and 195 capitals'], ['Maps', 'Simple, OpenStreetMap or Google'], ['Internet', 'Not needed on the Simple map'], ['Requires', 'Android 8.0 or later'], ['Languages', 'English']],
       help: [],
       videos: []
     }

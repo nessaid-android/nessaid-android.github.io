@@ -4,15 +4,15 @@ Small helpers for the Nessaid Android Studio site. Python 3, standard library on
 
 Run from the repository root:
 
-  python tools/site.py product  <apps|games> <slug> "<Name>" "<short description>"
+  python tools/site.py product  <apps|cards|games> <slug> "<Name>" "<short description>"
       Creates /<section>/<slug>/index.html, help/index.html and videos/index.html
       from /templates. Then add the product to assets/js/catalog.js.
 
-  python tools/site.py topic    <apps|games> <slug> <topic-slug> "<Title>"
+  python tools/site.py topic    <apps|cards|games> <slug> <topic-slug> "<Title>"
       Creates /<section>/<slug>/help/<topic-slug>.html. Then add
       { slug, title, summary } to that product's "help" array in catalog.js.
 
-  python tools/site.py privacy  <apps|games> <slug>
+  python tools/site.py privacy  <apps|cards|games> <slug>
       Creates /<section>/<slug>/privacy.html from the template. Fill it in, then
       set privacy: true for the product in catalog.js.
 
@@ -39,7 +39,7 @@ import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SITE_URL = "https://nessaid-android.github.io"
-SECTIONS = {"apps": "Apps", "games": "Games"}
+SECTIONS = {"apps": "Apps", "cards": "Card games", "games": "Games"}
 EXCLUDED_DIRS = {"templates", "tools", "assets", ".git"}
 EXCLUDED_FILES = {"404.html"}
 

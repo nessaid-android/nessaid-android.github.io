@@ -6,7 +6,7 @@
 
     <header id="site-header">          the bar: brand, nav, layout toggle
     <footer id="site-footer">          links to every product, layout toggle
-    <div data-catalog="apps|games|all"> product cards
+    <div data-catalog="apps|cards|games|all"> product cards
     <div data-product-hero>             icon, name, tagline, Play button  (needs body[data-product])
     <nav data-product-subnav>           Overview / Help / Videos / Privacy (body[data-page] marks the current one)
     <aside data-product-aside>          install panel and facts
@@ -68,7 +68,8 @@
   function privacyUrl(p) { return p.privacy ? productUrl(p) + 'privacy.html' : null; }
   function playUrl(p) { return p.play ? 'https://play.google.com/store/apps/details?id=' + encodeURIComponent(p.play) : null; }
 
-  // 'apps', 'games', 'all', or 'together' - the games played on nearby phones.
+  // A section name from C.sections, 'all', or 'together' - the games played on
+  // nearby phones with no internet, which are not all in one section.
   function bySection(section) {
     return C.products.filter(function (p) {
       if (section === 'together') return p.together === true;
@@ -208,16 +209,22 @@
       ]);
     }
 
-    var cols = el('div', { class: 'wrap cols' }, [
+    // The brand, then one column per section in the order catalog.js lists
+    // them, then the studio's own links. A new section needs no change here.
+    var columns = [
       el('div', { class: 'brand-col' }, [
         el('strong', { text: C.studio.name }),
         el('p', { text: C.studio.tagline })
-      ]),
-      column('Apps', bySection('apps').map(function (p) { return [p.name, productUrl(p)]; })),
-      column('Games', bySection('games').map(function (p) { return [p.name, productUrl(p)]; })),
-      column('Studio', [['Help centre', '/help/'], ['Website privacy', '/privacy/']]
-        .concat(C.studio.contactEmail ? [['Contact', 'mailto:' + C.studio.contactEmail]] : []))
-    ]);
+      ])
+    ];
+    Object.keys(C.sections).forEach(function (section) {
+      columns.push(column(C.sections[section].title,
+        bySection(section).map(function (p) { return [p.name, productUrl(p)]; })));
+    });
+    columns.push(column('Studio', [['Help centre', '/help/'], ['Website privacy', '/privacy/']]
+      .concat(C.studio.contactEmail ? [['Contact', 'mailto:' + C.studio.contactEmail]] : [])));
+
+    var cols = el('div', { class: 'wrap cols' }, columns);
 
     var base = el('div', { class: 'wrap base' }, [
       el('span', { text: '© ' + new Date().getFullYear() + ' ' + C.studio.name }),
@@ -288,7 +295,7 @@
       aside.textContent = '';
       aside.classList.add('product-aside');
 
-      var get = el('div', { class: 'panel' }, [el('h2', { text: p.section === 'games' ? 'Get the game' : 'Get the app' })]);
+      var get = el('div', { class: 'panel' }, [el('h2', { text: p.section === 'apps' ? 'Get the app' : 'Get the game' })]);
       if (p.play) {
         get.appendChild(el('a', { class: 'btn btn-primary', href: playUrl(p), rel: 'noopener', html: SVG.play }, []));
         get.lastChild.appendChild(document.createTextNode(' Google Play'));
@@ -355,7 +362,7 @@
   function renderHelpHub() {
     document.querySelectorAll('[data-help-hub]').forEach(function (host) {
       host.textContent = '';
-      ['apps', 'games'].forEach(function (section) {
+      Object.keys(C.sections).forEach(function (section) {
         host.appendChild(el('h2', { text: C.sections[section].title }));
         var list = el('ul', { class: 'topic-list' });
         bySection(section).forEach(function (p) {

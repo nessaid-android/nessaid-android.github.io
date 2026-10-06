@@ -9,9 +9,10 @@ committed to `main` is what is served, a minute or two after the push.
 ## Layout of the repository
 
 ```
-index.html                  home: hero, app cards, game cards
+index.html                  home: hero, then a row of cards per section
 apps/index.html             all apps
-games/index.html            all games
+cards/index.html            all card games
+games/index.html            all other games: puzzles, arcade and the rest
 help/index.html             help centre: every product's topics and videos
 privacy/index.html          the website's own privacy page
 404.html                    page not found
@@ -32,10 +33,35 @@ sitemap.xml, robots.txt     for search engines
 .nojekyll                   serve files as they are, without Jekyll
 ```
 
-Current slugs: `apps/battery-alarm`, `apps/alarm-clock`, `apps/location-alarm`,
-`apps/calculator`, `games/2048-puzzle`, `games/rummy`, `games/teen-patti`,
-`games/twenty-eight`. **A slug is part of a URL that Play listings and people
-link to, so never rename one** once it is published.
+## The three sections
+
+A product's `section` in `catalog.js` is the first part of its URL and the
+folder its pages live in. There are three:
+
+| Section | URL | What goes in it |
+|---|---|---|
+| `apps` | `/apps/` | Tools: alarms, the calculator |
+| `cards` | `/cards/` | The card-table games, all built on PhoneNet's shared card table |
+| `games` | `/games/` | Everything else: puzzles, arcade games, Blank Atlas |
+
+The header, the footer and the help centre are all driven by `sections` in
+`catalog.js`, in the order it lists them, so a fourth section would be one entry
+there plus a `<section>/index.html` and a line in `SECTIONS` in `tools/site.py`.
+
+**`together` is not a section.** It marks the games played on nearby phones with
+no internet, which `/play-together/` lists: every card game, and Blank Atlas,
+which is in `games`.
+
+Current slugs:
+
+- `apps/battery-alarm`, `apps/alarm-clock`, `apps/location-alarm`, `apps/calculator`
+- `cards/rummy`, `cards/teen-patti`, `cards/twenty-eight`, `cards/callbreak`, `cards/poker`, `cards/bridge`
+- `games/2048-puzzle`, `games/brick-game`, `games/archery`, `games/nest-hoppers`, `games/bb-roll`, `games/marble-solitaire`, `games/blank-atlas`
+
+**A slug is part of a URL that Play listings and people link to, so never rename
+one** once it is published. The same goes for moving a product between sections:
+the card games moved from `/games/<slug>/` to `/cards/<slug>/` while none of them
+was on Play, which is the only time it is free.
 
 ## Where each thing is written
 
@@ -151,6 +177,8 @@ product's pages. The Play listing's privacy policy URL is then
 python tools/site.py product apps new-app "New App" "One or two sentences for cards."
 ```
 
+The first argument is the section: `apps`, `cards` or `games`.
+
 Add an entry to `products` in `catalog.js`, write the long description in the new
 `index.html`, put a 512px icon at `assets/img/apps/new-app.png`, then `check` and
 `sitemap`.
@@ -183,12 +211,16 @@ scrolls sideways and scales them to one height.
 ## Still to decide
 
 - **Privacy policies** exist for Battery Alarm, Alarm Clock Ultimate, Location
-  Alarm, 2048 Puzzle and BB Roll only.
+  Alarm, Nessaid Calculator, 2048 Puzzle and BB Roll only.
   Each other product needs one before it goes on Play.
-- **Icons** exist for every product. Each comes from its own repo's
+- **Icons** come from each product's own repo, at
   `publishing/store-assets/icon-512.png` (the card games' from
   `phonenet/games/<game>/publishing/`, drawn by `games/tools/card_icons.py`); copy
-  it here when it changes.
-- **Rummy Express, Teen Patti Express and Twenty Eight Express** have package names under
-  `io.github.saithalavi`. A package name cannot change once published, so decide
-  before their first release whether they should move under `com.nessaid`.
+  it here when it changes. Archery, Nessaid Brick Game, Marble Solitaire and
+  Blank Atlas have no store icon yet, so their `icon` is `null` in `catalog.js`
+  and `site.js` draws their initials on the brand gradient instead.
+- **The old `/games/<slug>/` addresses of Rummy, Teen Patti and Twenty Eight**
+  now 404. None of the three was on Play, so no listing broke, but the three
+  pages may be in Google's index; if that matters, add a one-line meta-refresh
+  `index.html` at each old path. Note that `tools/site.py check` would then
+  report those folders as not being in `catalog.js`.

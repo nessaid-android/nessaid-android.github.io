@@ -440,7 +440,8 @@ html[data-layout="desktop"] .band .actions { grid-column: 2; grid-row: 1 / span 
 html[data-layout="desktop"] .video-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 html[data-layout="desktop"] .screens img { height: 460px; }
 
-html[data-layout="desktop"] .site-footer .cols { grid-template-columns: 2fr 1fr 1fr 1fr; }
+/* The brand, a column per section (apps, cards, games) and the studio. */
+html[data-layout="desktop"] .site-footer .cols { grid-template-columns: 2fr 1fr 1fr 1fr 1fr; }
 html[data-layout="desktop"] .site-footer .brand-col { grid-column: auto; }
 
 /* Forced mobile on a wide screen: keep the phone-width column centred, so
