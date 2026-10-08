@@ -1,0 +1,7 @@
+{
+  "house_ads": true,
+  "show_unpublished": false,
+  "share_percent": 25,
+  "share_cooloff_minutes": 10,
+  "hidden": []
+}
