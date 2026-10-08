@@ -343,10 +343,10 @@ window.NAS_CATALOG = {
       icon: '/assets/img/games/bowling.png',
       status: 'in-development',
       play: null,
-      privacy: false,
+      privacy: true,
       together: true,
       tags: ['Sports', 'Play nearby', 'No internet'],
-      facts: [['Players', '1 to 4, or a table of nearby phones'], ['Frames', '10, scored the real way'], ['Views', "The bowler's, or from above"], ['Practice', 'A lane whose grip and length you set'], ['Requires', 'Android 8.0 or later'], ['Languages', '33']],
+      facts: [['Players', '1 to 4, or a table of nearby phones'], ['Frames', '10, scored the real way'], ['Views', "The bowler's, or from above"], ['Practice', 'A lane whose turn factor and length you set'], ['Requires', 'Android 8.0 or later'], ['Languages', '33']],
       help: [],
       videos: []
     },
