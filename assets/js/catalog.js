@@ -348,7 +348,14 @@ window.NAS_CATALOG = {
       tags: ['Sports', 'Play nearby', 'No internet'],
       facts: [['Players', '1 to 4, or a table of nearby phones'], ['Frames', '10, scored the real way'], ['Views', "The bowler's, or from above"], ['Practice', 'A lane whose turn factor and length you set'], ['Requires', 'Android 8.0 or later'], ['Languages', '33']],
       help: [],
-      videos: []
+      videos: [
+        { youtube: 'kVqNezegogw', short: true, title: 'What it does',
+          summary: 'A strike with the chalk on, a hook, a swipe begun outside the lane going down the gutter, two of the swipes How to swipe shows, and the lane from above.' },
+        { youtube: 'y0VIAWDTixE', short: true, title: 'How to swipe',
+          summary: 'The game\'s own How to swipe screen: ten swipes, each drawn in chalk and then bowled, and two of them again on three lanes to show what the turn factor is.' },
+        { youtube: 'Kesrn1K3KEA', title: 'Two phones, one game',
+          summary: 'A game hosted on one phone and joined from another, both screens side by side: over Wi-Fi by scanning the code, then over Bluetooth by typing it.' }
+      ]
     },
     {
       slug: 'blank-atlas',
