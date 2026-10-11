@@ -286,7 +286,12 @@ window.NAS_CATALOG = {
       tags: ['Sports', 'Single player'],
       facts: [['A game', 'Six ends of three arrows'], ['Bows', 'Crude, professional, recurve, compound'], ['Ranges', '18 m to 70 m, on the real face for each'], ['Requires', 'Android 8.0 or later'], ['Languages', '26']],
       help: [],
-      videos: []
+      videos: [
+        { youtube: 'qBA6Ol9fSg4', short: true, title: 'What it does',
+          summary: 'Reading the two flags, holding off and letting go, the arrow followed down the range to the target, and two of the four bows: the compound and the longbow.' },
+        { youtube: '6LrrfwZAnHk', short: true, title: 'How to play',
+          summary: 'Hold to draw, drag to aim, lift to shoot; Hint showing where to hold; an early release falling short; a new wind at every distance; and practice with any of the four bows.' }
+      ]
     },
     {
       slug: 'nest-hoppers',
