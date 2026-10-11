@@ -266,7 +266,12 @@ window.NAS_CATALOG = {
       tags: ['Arcade', 'Retro', 'Single player'],
       facts: [['Games', '16'], ['Screen', '10x14 up to 14x28 cells'], ['Requires', 'Android 8.0 or later'], ['Languages', '26']],
       help: [],
-      videos: []
+      videos: [
+        { youtube: 'DRnZY8ud2H0', short: true, title: 'What it does',
+          summary: 'Tetris on the classic case, then car race, brick shooter and tank battle, and the pocket and tall cases in other colours and cell shapes.' },
+        { youtube: 'WmdTvNgBTPU', short: true, title: 'How to play',
+          summary: 'Choosing a game, its speed and its level, S/P to start and pause, RESET and ON/OFF, and the menu that holds everything else.' }
+      ]
     },
     {
       slug: 'archery',
