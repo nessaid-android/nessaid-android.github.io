@@ -211,14 +211,14 @@ scrolls sideways and scales them to one height.
 ## Still to decide
 
 - **Privacy policies** exist for Battery Alarm, Alarm Clock Ultimate, Location
-  Alarm, Nessaid Calculator, 2048 Puzzle and BB Roll only.
+  Alarm, Nessaid Calculator, 2048 Puzzle, Nessaid Brick Game, Archery, Nest
+  Hoppers, BB Roll and Nessaid Bowling only.
   Each other product needs one before it goes on Play.
 - **Icons** come from each product's own repo, at
   `publishing/store-assets/icon-512.png` (the card games' from
   `phonenet/games/<game>/publishing/`, drawn by `games/tools/card_icons.py`); copy
-  it here when it changes. Archery, Nessaid Brick Game, Marble Solitaire and
-  Blank Atlas have no store icon yet, so their `icon` is `null` in `catalog.js`
-  and `site.js` draws their initials on the brand gradient instead.
+  it here when it changes. A product with no store icon yet has `icon: null` in
+  `catalog.js`, and `site.js` draws its initials on the brand gradient instead.
 - **The old `/games/<slug>/` addresses of Rummy, Teen Patti and Twenty Eight**
   now 404. None of the three was on Play, so no listing broke, but the three
   pages may be in Google's index; if that matters, add a one-line meta-refresh
