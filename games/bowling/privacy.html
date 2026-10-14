@@ -26,11 +26,11 @@
     Every statement must match what the shipped build does - the manifest's
     permissions, whether ads are on, what is stored. Its source is
     publishing/privacy-policy.md in the game's own repository; the permissions
-    were read off the 1.0.0 release build on 8 October 2026.
+    were read off the 1.1.0 release build (versionCode 2) on 15 October 2026.
   -->
   <article class="doc">
     <h1>Privacy policy: Nessaid Bowling</h1>
-    <p class="lede">Last updated 9 October 2026</p>
+    <p class="lede">Last updated 15 October 2026</p>
 
     <p>Nessaid Bowling is a ten-pin bowling game for Android, published by Nessaid Android Studio. You bowl with one swipe up the lane, alone, against bots, or with other phones in the same room. This policy explains what it does and does not collect.</p>
 
@@ -41,7 +41,9 @@
     <h2>What stays on your device</h2>
     <ul>
       <li><strong>The name you play under, and the bots you have named</strong>, to put them on the scoresheet.</li>
-      <li><strong>Your settings</strong>: the language, sound, bumpers, the difficulty, the turn factor, your ball, the view, and whether your throws are chalked.</li>
+      <li><strong>Your settings</strong>: the language, sound, bumpers, the difficulty, the turn factor, the speed the game is shown at, your ball, the view, and whether your throws are chalked.</li>
+      <li><strong>Games you have played</strong>: the last game bowled to its end, and any you saved, so that you can watch them again. Each holds the names of everybody who bowled in it, their throws and their scores. Delete a saved game from Saved games.</li>
+      <li><strong>Phones you chose to save</strong> when you joined a game over Bluetooth: each one's name and Bluetooth address, so that it is called first the next time. Forget any of them from the Phones list on Join.</li>
       <li><strong>A key made on your phone the first time you play with others</strong>, so that the phones in a game can tell each other apart. It never leaves the phones you play with.</li>
     </ul>
     <p>All of it is in the app's own private storage on the phone, and uninstalling the app removes it.</p>
@@ -69,7 +71,7 @@
     <p>A game on one phone, alone or against bots, asks for nothing. The permissions below are asked for only when you host or join a game with other phones, and only the ones the way you chose needs.</p>
     <ul>
       <li><strong>Nearby devices</strong> (Bluetooth, and Wi-Fi devices): finding the other phones in the room and connecting to them. If you refuse, you cannot play with other phones that way; everything else works.</li>
-      <li><strong>Location</strong>, on Android 11 and older only: on those versions Android does not allow a Bluetooth scan without it. The app never reads your location. If you refuse, Bluetooth games cannot find each other on those phones.</li>
+      <li><strong>Location</strong>, approximate and precise, on Android 12L and older only: on those versions Android does not allow a search for nearby phones over Bluetooth, or over Google's Nearby connection, without it. A phone that hosts a game over Bluetooth is not asked. The app never reads your location and never sends it anywhere. If you refuse, those phones cannot find a game that way.</li>
       <li><strong>Notifications</strong>: the notice shown while a game with other phones is running, which is also the way back to it. If you refuse, the game still runs and the notice is hidden.</li>
     </ul>
     <p>The rest are install-time declarations that never prompt you:</p>
