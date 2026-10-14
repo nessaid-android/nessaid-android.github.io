@@ -361,10 +361,12 @@ window.NAS_CATALOG = {
       videos: [
         { youtube: 'kVqNezegogw', short: true, title: 'What it does',
           summary: 'A strike with the chalk on, a hook, a swipe begun outside the lane going down the gutter, two of the swipes How to swipe shows, and the lane from above.' },
-        { youtube: 'y0VIAWDTixE', short: true, title: 'How to swipe',
-          summary: 'The game\'s own How to swipe screen: ten swipes, each drawn in chalk and then bowled, and two of them again on three lanes to show what the turn factor is.' },
+        { youtube: 'HcAYb_cPXGs', short: true, title: 'How to swipe',
+          summary: 'The game\'s own How to swipe screen, on the lane as the bowler sees it: twelve swipes, each drawn in chalk and then bowled - where the ball starts, which way is straight, the slant, the hook, the power - and two of them again on three lanes to show what the turn factor is.' },
         { youtube: 'Kesrn1K3KEA', title: 'Two phones, one game',
-          summary: 'A game hosted on one phone and joined from another, both screens side by side: over Wi-Fi by scanning the code, then over Bluetooth by typing it.' }
+          summary: 'A game hosted on one phone and joined from another, both screens side by side: over Wi-Fi by scanning the code, then over Bluetooth by typing it.' },
+        { youtube: 'TBTZiDmrwNY', title: 'Join over Bluetooth',
+          summary: 'A phone that has never met the host finds it over Bluetooth, saves it, leaves, and is back in four seconds by the saved phone; then a ball on each.' }
       ]
     },
     {
