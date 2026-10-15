@@ -94,7 +94,7 @@ window.NAS_CATALOG = {
       facts: [['Requires', 'Android 8.0 or later'], ['Languages', '26'], ['Price', 'Free, contains ads']],
       help: [],
       videos: [
-        { youtube: 'Iz8Y4YYSXMU', short: true, title: 'What it does',
+        { youtube: 'cAR1LPF74M4', short: true, title: 'What it does',
           summary: 'Alarms and when each rings next, one alarm\'s own settings and repeat rule, timers and stopwatches, and an alarm ringing over the lock screen.' }
       ]
     },
