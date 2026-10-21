@@ -181,7 +181,20 @@ window.NAS_CATALOG = {
       tags: ['Cards', 'Bluetooth', 'No internet', 'Play nearby'],
       facts: [['Players', '2 to 6, bots fill the rest'], ['Languages', '13'], ['Internet', 'Not needed'], ['Connects over', 'Bluetooth, Wi-Fi or Nearby'], ['Real money', 'None'], ['Requires', 'Android 8.0 or later']],
       help: [],
-      videos: []
+      videos: [
+        { youtube: 'onh0UFRbDgI', short: true, src: '/cards/teen-patti/videos/files/promo-1.0.0.mp4',
+          title: 'Teen Patti Express',
+          summary: 'Three-card teen patti for the phones in the room, no internet: one hosts, the others join, and bots fill a short table.' },
+        { youtube: '3tEqVAYzPTc', short: true, src: '/cards/teen-patti/videos/files/explain-hosting.mp4',
+          title: 'How to host a table',
+          summary: 'Choose how the phones reach each other, read the code out, seat bots if you are short of players, and start.' },
+        { youtube: 'p_aMVj7YijE', src: '/cards/teen-patti/videos/files/explain-bluetooth.mp4',
+          title: 'Two phones over Bluetooth, no network at all',
+          summary: 'Two phones never paired, with Wi-Fi and mobile data off: one hosts and reads its code out, the other types it and sits down.' },
+        { youtube: 'XQNGWEotwc0', short: true, src: '/cards/teen-patti/videos/files/explain-teenpatti.mp4',
+          title: 'How to play Teen Patti',
+          summary: 'Bet blind at the stake, or look and bet twice it. Pack to fold; when two are left, ask for a show and the better hand takes the pot.' }
+      ]
     },
     {
       slug: 'twenty-eight',
