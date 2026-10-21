@@ -351,11 +351,18 @@
     }
     host.classList.add('video-list');
     p.videos.forEach(function (v) {
-      host.appendChild(el('article', null, [
-        el('div', { class: v.short ? 'yt short' : 'yt', 'data-yt': v.youtube, 'data-title': v.title }),
-        el('h3', { text: v.title }),
-        el('p', { text: v.summary || '' })
-      ]));
+      // A video is on YouTube, or kept here, or both. Kept here, it is the site's own copy:
+      // played in place where there is no YouTube upload yet, and offered under the YouTube
+      // player where there is, for anybody YouTube does not reach.
+      var player = v.youtube
+        ? el('div', { class: v.short ? 'yt short' : 'yt', 'data-yt': v.youtube, 'data-title': v.title })
+        : el('video', { class: v.short ? 'own short' : 'own', src: v.src, controls: true, preload: 'none',
+                        playsinline: true, poster: v.poster || null, 'aria-label': v.title });
+      var parts = [player, el('h3', { text: v.title }), el('p', { text: v.summary || '' })];
+      if (v.youtube && v.src) {
+        parts.push(el('p', { class: 'own-copy' }, [el('a', { href: v.src, text: 'Or watch it here, without YouTube' })]));
+      }
+      host.appendChild(el('article', null, parts));
     });
   }
 

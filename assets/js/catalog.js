@@ -200,7 +200,20 @@ window.NAS_CATALOG = {
       tags: ['Cards', 'Bluetooth', 'No internet', 'Play nearby'],
       facts: [['Players', '4, bots fill the rest'], ['Languages', '13'], ['Internet', 'Not needed'], ['Connects over', 'Bluetooth, Wi-Fi or Nearby'], ['Real money', 'None'], ['Requires', 'Android 8.0 or later']],
       help: [],
-      videos: []
+      videos: [
+        { youtube: '55M5iqlLC4g', short: true, src: '/cards/callbreak/videos/files/promo-1.0.0.mp4',
+          title: 'Call Break Express',
+          summary: 'Four phones round a table, no internet: one hosts, the others join, and spades are trumps from the first card.' },
+        { youtube: 'eUg5dbcrb7U', short: true, src: '/cards/callbreak/videos/files/explain-hosting.mp4',
+          title: 'How to host a table',
+          summary: 'Choose how the phones reach each other, read the code out, seat bots if you are short of players, and start.' },
+        { youtube: 'AwCWLPq7vqI', src: '/cards/callbreak/videos/files/explain-bluetooth.mp4',
+          title: 'Two phones over Bluetooth, no network at all',
+          summary: 'Two phones never paired, with Wi-Fi and mobile data off: one hosts and reads its code out, the other types it and sits down.' },
+        { youtube: 'cEKKcfPnITs', short: true, src: '/cards/callbreak/videos/files/explain-callbreak.mp4',
+          title: 'How to play Call Break',
+          summary: 'Call the tricks you will take, then take them. Spades are always trumps; make your call and score it, fall short and lose it.' }
+      ]
     },
     {
       slug: 'poker',

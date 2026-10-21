@@ -374,6 +374,10 @@ a.card:hover { border-color: var(--brand); transform: translateY(-1px); color: v
 .yt.short { aspect-ratio: 9 / 16; width: 100%; max-width: 340px; }
 .yt iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
 .yt .yt-note { font-size: .78rem; opacity: .85; }
+/* The site's own copy of a video, played in place: the same frame as a YouTube one. */
+video.own { display: block; width: 100%; aspect-ratio: 16 / 9; border-radius: var(--radius); background: #000; margin: 12px 0; }
+video.own.short { aspect-ratio: 9 / 16; max-width: 340px; }
+.video-list .own-copy { margin-top: 4px; font-size: .86rem; }
 .video-list { display: grid; grid-template-columns: 1fr; gap: 20px; }
 .video-list h3 { margin: 6px 0 2px; }
 .video-list p { margin: 0; color: var(--muted); font-size: .94rem; }
