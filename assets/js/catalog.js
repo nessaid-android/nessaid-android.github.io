@@ -210,7 +210,20 @@ window.NAS_CATALOG = {
       tags: ['Cards', 'Bluetooth', 'No internet', 'Play nearby'],
       facts: [['Players', '4 or 6, bots fill the rest'], ['Languages', '6'], ['Internet', 'Not needed'], ['Connects over', 'Bluetooth or Wi-Fi'], ['Real money', 'None'], ['Requires', 'Android 8.0 or later']],
       help: [],
-      videos: []
+      videos: [
+        { youtube: 'xBU-h9dhjog', short: true, src: '/cards/twenty-eight/videos/files/promo-1.0.0.mp4',
+          title: 'Twenty Eight Express',
+          summary: 'The trick-taking game of Kerala for the phones in the room, no internet: one hosts, the others join, and bots fill a short table.' },
+        { youtube: 'DB-NgvpSv9k', short: true, src: '/cards/twenty-eight/videos/files/explain-hosting.mp4',
+          title: 'How to host a table',
+          summary: 'Choose how the phones reach each other, read the code out, seat bots if you are short of players, and start.' },
+        { youtube: '_Rk6G9l5azM', src: '/cards/twenty-eight/videos/files/explain-bluetooth.mp4',
+          title: 'Two phones over Bluetooth, no network at all',
+          summary: 'Two phones never paired, with Wi-Fi and mobile data off: one hosts and reads its code out, the other types it and sits down.' },
+        { youtube: 'Xj6TgIF6_Ds', short: true, src: '/cards/twenty-eight/videos/files/explain-twentyeight.mp4',
+          title: 'How to play Twenty Eight',
+          summary: 'Bid for the trump and set it face down; follow suit, and ask for the trump when you cannot. Jacks three, nines two, aces and tens one.' }
+      ]
     },
     {
       slug: 'callbreak',
