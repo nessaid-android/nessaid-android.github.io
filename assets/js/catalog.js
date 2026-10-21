@@ -152,7 +152,20 @@ window.NAS_CATALOG = {
       tags: ['Cards', 'Bluetooth', 'No internet', 'Play nearby'],
       facts: [['Players', '2 to 6, bots fill the rest'], ['Languages', '13'], ['Internet', 'Not needed'], ['Connects over', 'Bluetooth, Wi-Fi or Nearby'], ['Real money', 'None'], ['Requires', 'Android 8.0 or later']],
       help: [],
-      videos: []
+      videos: [
+        { youtube: 'OSVAL6mhybw', short: true, src: '/cards/rummy/videos/files/promo-1.0.0.mp4',
+          title: 'Rummy Express',
+          summary: 'Indian thirteen-card rummy for the phones in the room, no internet: one hosts, the others join, and bots fill a short table.' },
+        { youtube: 'K6upH6t666Y', short: true, src: '/cards/rummy/videos/files/explain-hosting.mp4',
+          title: 'How to host a table',
+          summary: 'Choose how the phones reach each other, read the code out, seat bots if you are short of players, and start.' },
+        { youtube: 'i74t194TToU', src: '/cards/rummy/videos/files/explain-bluetooth.mp4',
+          title: 'Two phones over Bluetooth, no network at all',
+          summary: 'Two phones never paired, with Wi-Fi and mobile data off: one hosts and reads its code out, the other types it and sits down.' },
+        { youtube: 'Z3yDAIZIJzY', short: true, src: '/cards/rummy/videos/files/explain-rummy.mp4',
+          title: 'How to play Indian Rummy',
+          summary: 'Draw, then throw a card. Go out with every card in sets and sequences, two sequences at least and one of them without a joker.' }
+      ]
     },
     {
       slug: 'teen-patti',
