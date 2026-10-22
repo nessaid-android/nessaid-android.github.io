@@ -308,7 +308,20 @@ window.NAS_CATALOG = {
         { slug: 'lost-touch', title: 'When a phone loses touch', summary: 'If a phone drops out, the table waits for it, and the host decides: wait for that player, or drop them and play on.' },
         { slug: 'share-a-win', title: 'Sharing a win', summary: 'When you win a game, Share makes an "I won!" card with the final table, and Android\'s share sheet sends it wherever you choose.' }
       ],
-      videos: []
+      videos: [
+        { youtube: 'yH1wSFznnMk', short: true, src: '/cards/poker/videos/files/promo-1.0.0.mp4',
+          title: 'Poker Express',
+          summary: "No-limit Texas hold'em for the phones in the room, no internet: one hosts, the others join, and bots fill a short table." },
+        { youtube: 'svf1Txf8wXw', short: true, src: '/cards/poker/videos/files/explain-hosting.mp4',
+          title: 'How to host a table',
+          summary: 'Choose how the phones reach each other, read the code out, seat bots if you are short of players, and start.' },
+        { youtube: '8QlSx_fdqUo', src: '/cards/poker/videos/files/explain-bluetooth.mp4',
+          title: 'Two phones over Bluetooth, no network at all',
+          summary: 'Two phones never paired, with Wi-Fi and mobile data off: one hosts and reads its code out, the other types it and sits down.' },
+        { youtube: 'clWrHyDG0hE', short: true, src: '/cards/poker/videos/files/explain-poker.mp4',
+          title: "How to play Texas hold'em",
+          summary: 'Two cards each and five shared: fold, check, call, bet or raise in four rounds, and the best five of your seven take the pot.' }
+      ]
     },
     {
       slug: 'bridge',
