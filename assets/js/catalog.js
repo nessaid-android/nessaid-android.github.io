@@ -151,7 +151,15 @@ window.NAS_CATALOG = {
       together: true,
       tags: ['Cards', 'Bluetooth', 'No internet', 'Play nearby'],
       facts: [['Players', '2 to 6, bots fill the rest'], ['Languages', '13'], ['Internet', 'Not needed'], ['Connects over', 'Bluetooth, Wi-Fi or Nearby'], ['Real money', 'None'], ['Requires', 'Android 8.0 or later']],
-      help: [],
+      help: [
+        { slug: 'rules', title: 'The rules of Rummy', summary: 'Thirteen cards each, from one deck or two.' },
+        { slug: 'host-a-table', title: 'Host a table', summary: 'One phone hosts the table: it deals, and the others join it.' },
+        { slug: 'join-a-table', title: 'Join a table', summary: 'Tap Join a table and choose the same way the host chose.' },
+        { slug: 'ways-to-connect', title: 'Ways to connect', summary: 'Wi-Fi: every phone on the same Wi-Fi network.' },
+        { slug: 'bots', title: 'Bots', summary: 'A bot is a player with no phone: the host\'s phone plays for it.' },
+        { slug: 'lost-touch', title: 'When a phone loses touch', summary: 'If a phone drops out, the table waits for it, and the host decides: wait for that player, or drop them and play on.' },
+        { slug: 'share-a-win', title: 'Sharing a win', summary: 'When you win a game, Share makes an "I won!" card with the final table, and Android\'s share sheet sends it wherever you choose.' }
+      ],
       videos: [
         { youtube: 'OSVAL6mhybw', short: true, src: '/cards/rummy/videos/files/promo-1.0.0.mp4',
           title: 'Rummy Express',
@@ -180,7 +188,15 @@ window.NAS_CATALOG = {
       together: true,
       tags: ['Cards', 'Bluetooth', 'No internet', 'Play nearby'],
       facts: [['Players', '2 to 6, bots fill the rest'], ['Languages', '13'], ['Internet', 'Not needed'], ['Connects over', 'Bluetooth, Wi-Fi or Nearby'], ['Real money', 'None'], ['Requires', 'Android 8.0 or later']],
-      help: [],
+      help: [
+        { slug: 'rules', title: 'The rules of Teen Patti', summary: 'Three cards each, and everybody\'s boot in the pot.' },
+        { slug: 'host-a-table', title: 'Host a table', summary: 'One phone hosts the table: it deals, and the others join it.' },
+        { slug: 'join-a-table', title: 'Join a table', summary: 'Tap Join a table and choose the same way the host chose.' },
+        { slug: 'ways-to-connect', title: 'Ways to connect', summary: 'Wi-Fi: every phone on the same Wi-Fi network.' },
+        { slug: 'bots', title: 'Bots', summary: 'A bot is a player with no phone: the host\'s phone plays for it.' },
+        { slug: 'lost-touch', title: 'When a phone loses touch', summary: 'If a phone drops out, the table waits for it, and the host decides: wait for that player, or drop them and play on.' },
+        { slug: 'share-a-win', title: 'Sharing a win', summary: 'When you win a game, Share makes an "I won!" card with the final table, and Android\'s share sheet sends it wherever you choose.' }
+      ],
       videos: [
         { youtube: 'onh0UFRbDgI', short: true, src: '/cards/teen-patti/videos/files/promo-1.0.0.mp4',
           title: 'Teen Patti Express',
@@ -209,7 +225,15 @@ window.NAS_CATALOG = {
       together: true,
       tags: ['Cards', 'Bluetooth', 'No internet', 'Play nearby'],
       facts: [['Players', '4 or 6, bots fill the rest'], ['Languages', '6'], ['Internet', 'Not needed'], ['Connects over', 'Bluetooth or Wi-Fi'], ['Real money', 'None'], ['Requires', 'Android 8.0 or later']],
-      help: [],
+      help: [
+        { slug: 'rules', title: 'The rules of Twenty Eight', summary: 'Four players in two pairs, partners sitting alternately; with six, two threes.' },
+        { slug: 'host-a-table', title: 'Host a table', summary: 'One phone hosts the table: it deals, and the others join it.' },
+        { slug: 'join-a-table', title: 'Join a table', summary: 'Tap Join a table and choose the same way the host chose.' },
+        { slug: 'ways-to-connect', title: 'Ways to connect', summary: 'Wi-Fi: every phone on the same Wi-Fi network.' },
+        { slug: 'bots', title: 'Bots', summary: 'A bot is a player with no phone: the host\'s phone plays for it.' },
+        { slug: 'lost-touch', title: 'When a phone loses touch', summary: 'If a phone drops out, the table waits for it, and the host decides: wait for that player, or drop them and play on.' },
+        { slug: 'share-a-win', title: 'Sharing a win', summary: 'When you win a game, Share makes an "I won!" card with the final table, and Android\'s share sheet sends it wherever you choose.' }
+      ],
       videos: [
         { youtube: 'xBU-h9dhjog', short: true, src: '/cards/twenty-eight/videos/files/promo-1.0.0.mp4',
           title: 'Twenty Eight Express',
@@ -238,7 +262,15 @@ window.NAS_CATALOG = {
       together: true,
       tags: ['Cards', 'Bluetooth', 'No internet', 'Play nearby'],
       facts: [['Players', '4, bots fill the rest'], ['Languages', '13'], ['Internet', 'Not needed'], ['Connects over', 'Bluetooth, Wi-Fi or Nearby'], ['Real money', 'None'], ['Requires', 'Android 8.0 or later']],
-      help: [],
+      help: [
+        { slug: 'rules', title: 'The rules of Call Break', summary: 'Four players, each for themselves, with a full pack of 52: thirteen cards each, and the ace high in every suit.' },
+        { slug: 'host-a-table', title: 'Host a table', summary: 'One phone hosts the table: it deals, and the others join it.' },
+        { slug: 'join-a-table', title: 'Join a table', summary: 'Tap Join a table and choose the same way the host chose.' },
+        { slug: 'ways-to-connect', title: 'Ways to connect', summary: 'Wi-Fi: every phone on the same Wi-Fi network.' },
+        { slug: 'bots', title: 'Bots', summary: 'A bot is a player with no phone: the host\'s phone plays for it.' },
+        { slug: 'lost-touch', title: 'When a phone loses touch', summary: 'If a phone drops out, the table waits for it, and the host decides: wait for that player, or drop them and play on.' },
+        { slug: 'share-a-win', title: 'Sharing a win', summary: 'When you win a game, Share makes an "I won!" card with the final table, and Android\'s share sheet sends it wherever you choose.' }
+      ],
       videos: [
         { youtube: '55M5iqlLC4g', short: true, src: '/cards/callbreak/videos/files/promo-1.0.0.mp4',
           title: 'Call Break Express',
@@ -267,7 +299,15 @@ window.NAS_CATALOG = {
       together: true,
       tags: ['Cards', 'Bluetooth', 'No internet', 'Play nearby'],
       facts: [['Players', '2 to 8, bots fill the rest'], ['Languages', '33'], ['Internet', 'Not needed'], ['Connects over', 'Bluetooth, Wi-Fi or Nearby'], ['Real money', 'None'], ['Requires', 'Android 8.0 or later']],
-      help: [],
+      help: [
+        { slug: 'rules', title: 'The rules of Poker', summary: 'No-limit Texas hold\'em for two to eight.' },
+        { slug: 'host-a-table', title: 'Host a table', summary: 'One phone hosts the table: it deals, and the others join it.' },
+        { slug: 'join-a-table', title: 'Join a table', summary: 'Tap Join a table and choose the same way the host chose.' },
+        { slug: 'ways-to-connect', title: 'Ways to connect', summary: 'Wi-Fi: every phone on the same Wi-Fi network.' },
+        { slug: 'bots', title: 'Bots', summary: 'A bot is a player with no phone: the host\'s phone plays for it.' },
+        { slug: 'lost-touch', title: 'When a phone loses touch', summary: 'If a phone drops out, the table waits for it, and the host decides: wait for that player, or drop them and play on.' },
+        { slug: 'share-a-win', title: 'Sharing a win', summary: 'When you win a game, Share makes an "I won!" card with the final table, and Android\'s share sheet sends it wherever you choose.' }
+      ],
       videos: []
     },
     {
@@ -283,7 +323,15 @@ window.NAS_CATALOG = {
       together: true,
       tags: ['Cards', 'Bluetooth', 'No internet', 'Play nearby'],
       facts: [['Players', '4 in two pairs, bots fill the rest'], ['Languages', '33'], ['Internet', 'Not needed'], ['Connects over', 'Bluetooth, Wi-Fi or Nearby'], ['Real money', 'None'], ['Requires', 'Android 8.0 or later']],
-      help: [],
+      help: [
+        { slug: 'rules', title: 'The rules of Bridge', summary: 'Four players in two pairs, partners opposite.' },
+        { slug: 'host-a-table', title: 'Host a table', summary: 'One phone hosts the table: it deals, and the others join it.' },
+        { slug: 'join-a-table', title: 'Join a table', summary: 'Tap Join a table and choose the same way the host chose.' },
+        { slug: 'ways-to-connect', title: 'Ways to connect', summary: 'Wi-Fi: every phone on the same Wi-Fi network.' },
+        { slug: 'bots', title: 'Bots', summary: 'A bot is a player with no phone: the host\'s phone plays for it.' },
+        { slug: 'lost-touch', title: 'When a phone loses touch', summary: 'If a phone drops out, the table waits for it, and the host decides: wait for that player, or drop them and play on.' },
+        { slug: 'share-a-win', title: 'Sharing a win', summary: 'When you win a game, Share makes an "I won!" card with the final table, and Android\'s share sheet sends it wherever you choose.' }
+      ],
       videos: []
     },
 
