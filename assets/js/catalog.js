@@ -345,7 +345,20 @@ window.NAS_CATALOG = {
         { slug: 'lost-touch', title: 'When a phone loses touch', summary: 'If a phone drops out, the table waits for it, and the host decides: wait for that player, or drop them and play on.' },
         { slug: 'share-a-win', title: 'Sharing a win', summary: 'When you win a game, Share makes an "I won!" card with the final table, and Android\'s share sheet sends it wherever you choose.' }
       ],
-      videos: []
+      videos: [
+        { youtube: 'KZcX-iJQpbU', short: true, src: '/cards/bridge/videos/files/promo-1.0.0.mp4',
+          title: 'Bridge Express',
+          summary: 'Contract bridge for four phones in two pairs, no internet: one hosts, the others join, and bots fill a short table.' },
+        { youtube: 'ZvepDxMLGYA', short: true, src: '/cards/bridge/videos/files/explain-hosting.mp4',
+          title: 'How to host a table',
+          summary: 'Choose how the phones reach each other, read the code out, seat bots if you are short of players, and start.' },
+        { youtube: 'FS1wnZOscqc', src: '/cards/bridge/videos/files/explain-bluetooth.mp4',
+          title: 'Two phones over Bluetooth, no network at all',
+          summary: 'Two phones never paired, with Wi-Fi and mobile data off: one hosts and reads its code out, the other types it and sits down.' },
+        { youtube: 'i9pwp1GxyBQ', short: true, src: '/cards/bridge/videos/files/explain-bridge.mp4',
+          title: 'How to play contract bridge',
+          summary: "Bid for the contract, lay dummy face up, and play both hands as declarer: scored deal by deal, the Chicago way." }
+      ]
     },
 
     // ------------------------------------------------------------ games
