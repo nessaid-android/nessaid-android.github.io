@@ -360,6 +360,54 @@ window.NAS_CATALOG = {
           summary: "Bid for the contract, lay dummy face up, and play both hands as declarer: scored deal by deal, the Chicago way." }
       ]
     },
+    {
+      slug: 'gin-rummy',
+      section: 'cards',
+      name: 'Gin Rummy Express',
+      tagline: 'Gin rummy for two phones, or one against a bot.',
+      short: 'Gin rummy for two players on their own phones, or one against a bot: draw, discard, knock or go gin, played to 100 with the American bonuses.',
+      icon: '/assets/img/cards/gin-rummy.png',
+      status: 'in-development',
+      play: null,
+      privacy: false,
+      together: true,
+      tags: ['Cards', 'Bluetooth', 'No internet', 'Play nearby'],
+      facts: [['Players', '2, or 1 against a bot'], ['Languages', '33'], ['Internet', 'Not needed'], ['Connects over', 'Bluetooth, Wi-Fi or Nearby'], ['Real money', 'None'], ['Requires', 'Android 8.0 or later']],
+      help: [
+        { slug: 'rules', title: 'The rules of Gin Rummy', summary: 'Two players, one deck of 52, ten cards each.' },
+        { slug: 'host-a-table', title: 'Host a table', summary: 'One phone hosts the table: it deals, and the others join it.' },
+        { slug: 'join-a-table', title: 'Join a table', summary: 'Tap Join a table and choose the same way the host chose.' },
+        { slug: 'ways-to-connect', title: 'Ways to connect', summary: 'Wi-Fi: every phone on the same Wi-Fi network.' },
+        { slug: 'bots', title: 'Bots', summary: 'A bot is a player with no phone: the host\'s phone plays for it.' },
+        { slug: 'lost-touch', title: 'When a phone loses touch', summary: 'If a phone drops out, the table waits for it, and the host decides: wait for that player, or drop them and play on.' },
+        { slug: 'share-a-win', title: 'Sharing a win', summary: 'When you win a game, Share makes an "I won!" card with the final table, and Android\'s share sheet sends it wherever you choose.' }
+      ],
+      videos: []
+    },
+    {
+      slug: 'spades',
+      section: 'cards',
+      name: 'Spades Express',
+      tagline: 'Spades for four phones, in two partnerships.',
+      short: 'Spades for four players in two partnerships on their own phones: bid with your partner or bid nil, spades always trump, and the first side to 500 wins.',
+      icon: '/assets/img/cards/spades.png',
+      status: 'in-development',
+      play: null,
+      privacy: false,
+      together: true,
+      tags: ['Cards', 'Bluetooth', 'No internet', 'Play nearby'],
+      facts: [['Players', '4 in two partnerships, bots fill the rest'], ['Languages', '33'], ['Internet', 'Not needed'], ['Connects over', 'Bluetooth, Wi-Fi or Nearby'], ['Real money', 'None'], ['Requires', 'Android 8.0 or later']],
+      help: [
+        { slug: 'rules', title: 'The rules of Spades', summary: 'Four players in two partnerships, partners sitting opposite, with a full pack of 52: thirteen cards each, and the ace high in every suit.' },
+        { slug: 'host-a-table', title: 'Host a table', summary: 'One phone hosts the table: it deals, and the others join it.' },
+        { slug: 'join-a-table', title: 'Join a table', summary: 'Tap Join a table and choose the same way the host chose.' },
+        { slug: 'ways-to-connect', title: 'Ways to connect', summary: 'Wi-Fi: every phone on the same Wi-Fi network.' },
+        { slug: 'bots', title: 'Bots', summary: 'A bot is a player with no phone: the host\'s phone plays for it.' },
+        { slug: 'lost-touch', title: 'When a phone loses touch', summary: 'If a phone drops out, the table waits for it, and the host decides: wait for that player, or drop them and play on.' },
+        { slug: 'share-a-win', title: 'Sharing a win', summary: 'When you win a game, Share makes an "I won!" card with the final table, and Android\'s share sheet sends it wherever you choose.' }
+      ],
+      videos: []
+    },
 
     // ------------------------------------------------------------ games
     // Puzzles, arcade games and everything not played with a pack of cards.
