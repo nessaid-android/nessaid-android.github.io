@@ -266,7 +266,7 @@ window.NAS_CATALOG = {
       privacy: true,
       together: true,
       tags: ['Cards', 'Bluetooth', 'No internet', 'Play nearby'],
-      facts: [['Players', '2 to 8, bots fill the rest', ['Languages', '33']], ['Internet', 'Not needed'], ['Connects over', 'Bluetooth, Wi-Fi or Nearby'], ['Real money', 'None'], ['Requires', 'Android 7.0 or later']],
+      facts: [['Players', '2 to 8, bots fill the rest'], ['Languages', '33'], ['Internet', 'Not needed'], ['Connects over', 'Bluetooth, Wi-Fi or Nearby'], ['Real money', 'None'], ['Requires', 'Android 8.0 or later']],
       help: [],
       videos: []
     },
@@ -282,7 +282,7 @@ window.NAS_CATALOG = {
       privacy: true,
       together: true,
       tags: ['Cards', 'Bluetooth', 'No internet', 'Play nearby'],
-      facts: [['Players', '4 in two pairs, bots fill the rest', ['Languages', '33']], ['Internet', 'Not needed'], ['Connects over', 'Bluetooth, Wi-Fi or Nearby'], ['Real money', 'None'], ['Requires', 'Android 7.0 or later']],
+      facts: [['Players', '4 in two pairs, bots fill the rest'], ['Languages', '33'], ['Internet', 'Not needed'], ['Connects over', 'Bluetooth, Wi-Fi or Nearby'], ['Real money', 'None'], ['Requires', 'Android 8.0 or later']],
       help: [],
       videos: []
     },
