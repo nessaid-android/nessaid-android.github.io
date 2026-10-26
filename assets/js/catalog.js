@@ -408,6 +408,54 @@ window.NAS_CATALOG = {
       ],
       videos: []
     },
+    {
+      slug: 'euchre',
+      section: 'cards',
+      name: 'Euchre Express',
+      tagline: 'Euchre for four phones, in two pairs.',
+      short: 'Euchre for four players in two pairs on their own phones: order it up or pass, the bowers, going alone, and the first side to ten.',
+      icon: '/assets/img/cards/euchre.png',
+      status: 'in-development',
+      play: null,
+      privacy: true,
+      together: true,
+      tags: ['Cards', 'Bluetooth', 'No internet', 'Play nearby'],
+      facts: [['Players', '4 in two pairs, bots fill the rest'], ['Languages', '33'], ['Internet', 'Not needed'], ['Connects over', 'Bluetooth, Wi-Fi or Nearby'], ['Real money', 'None'], ['Requires', 'Android 8.0 or later']],
+      help: [
+        { slug: 'rules', title: 'The rules of Euchre', summary: 'Four players in two partnerships, partners sitting opposite.' },
+        { slug: 'host-a-table', title: 'Host a table', summary: 'One phone hosts the table: it deals, and the others join it.' },
+        { slug: 'join-a-table', title: 'Join a table', summary: 'Tap Join a table and choose the same way the host chose.' },
+        { slug: 'ways-to-connect', title: 'Ways to connect', summary: 'Wi-Fi: every phone on the same Wi-Fi network.' },
+        { slug: 'bots', title: 'Bots', summary: 'A bot is a player with no phone: the host\'s phone plays for it.' },
+        { slug: 'lost-touch', title: 'When a phone loses touch', summary: 'If a phone drops out, the table waits for it, and the host decides: wait for that player, or drop them and play on.' },
+        { slug: 'share-a-win', title: 'Sharing a win', summary: 'When you win a game, Share makes an "I won!" card with the final table, and Android\'s share sheet sends it wherever you choose.' }
+      ],
+      videos: []
+    },
+    {
+      slug: '29',
+      section: 'cards',
+      name: '29 Express',
+      tagline: '29 for four phones, in two pairs.',
+      short: '29 for four players in two pairs on their own phones: bid from 16 to 28, put the trump face down, and take the points; the first side to six wins.',
+      icon: '/assets/img/cards/29.png',
+      status: 'in-development',
+      play: null,
+      privacy: true,
+      together: true,
+      tags: ['Cards', 'Bluetooth', 'No internet', 'Play nearby'],
+      facts: [['Players', '4 in two pairs, bots fill the rest'], ['Languages', '33'], ['Internet', 'Not needed'], ['Connects over', 'Bluetooth, Wi-Fi or Nearby'], ['Real money', 'None'], ['Requires', 'Android 8.0 or later']],
+      help: [
+        { slug: 'rules', title: 'The rules of 29', summary: 'Four players in two pairs, partners sitting opposite.' },
+        { slug: 'host-a-table', title: 'Host a table', summary: 'One phone hosts the table: it deals, and the others join it.' },
+        { slug: 'join-a-table', title: 'Join a table', summary: 'Tap Join a table and choose the same way the host chose.' },
+        { slug: 'ways-to-connect', title: 'Ways to connect', summary: 'Wi-Fi: every phone on the same Wi-Fi network.' },
+        { slug: 'bots', title: 'Bots', summary: 'A bot is a player with no phone: the host\'s phone plays for it.' },
+        { slug: 'lost-touch', title: 'When a phone loses touch', summary: 'If a phone drops out, the table waits for it, and the host decides: wait for that player, or drop them and play on.' },
+        { slug: 'share-a-win', title: 'Sharing a win', summary: 'When you win a game, Share makes an "I won!" card with the final table, and Android\'s share sheet sends it wherever you choose.' }
+      ],
+      videos: []
+    },
 
     // ------------------------------------------------------------ games
     // Puzzles, arcade games and everything not played with a pack of cards.
