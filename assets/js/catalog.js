@@ -456,6 +456,54 @@ window.NAS_CATALOG = {
       ],
       videos: []
     },
+    {
+      slug: 'big-two',
+      section: 'cards',
+      name: 'Big Two Express',
+      tagline: 'Big Two for four phones.',
+      short: 'Big Two for four players on their own phones: beat the last play with higher cards or pass, and be first to empty your hand.',
+      icon: '/assets/img/cards/big-two.png',
+      status: 'in-development',
+      play: null,
+      privacy: false,
+      together: true,
+      tags: ['Cards', 'Bluetooth', 'No internet', 'Play nearby'],
+      facts: [['Players', '4, bots fill the rest'], ['Languages', '33'], ['Internet', 'Not needed'], ['Connects over', 'Bluetooth, Wi-Fi or Nearby'], ['Real money', 'None'], ['Requires', 'Android 8.0 or later']],
+      help: [
+        { slug: 'rules', title: 'The rules of Big Two', summary: 'Four players, each for themselves, with a full pack of 52: thirteen cards each.' },
+        { slug: 'host-a-table', title: 'Host a table', summary: 'One phone hosts the table: it deals, and the others join it.' },
+        { slug: 'join-a-table', title: 'Join a table', summary: 'Tap Join a table and choose the same way the host chose.' },
+        { slug: 'ways-to-connect', title: 'Ways to connect', summary: 'Wi-Fi: every phone on the same Wi-Fi network.' },
+        { slug: 'bots', title: 'Bots', summary: 'A bot is a player with no phone: the host\'s phone plays for it.' },
+        { slug: 'lost-touch', title: 'When a phone loses touch', summary: 'If a phone drops out, the table waits for it, and the host decides: wait for that player, or drop them and play on.' },
+        { slug: 'share-a-win', title: 'Sharing a win', summary: 'When you win a game, Share makes an "I won!" card with the final table, and Android\'s share sheet sends it wherever you choose.' }
+      ],
+      videos: []
+    },
+    {
+      slug: 'dou-dizhu',
+      section: 'cards',
+      name: 'Dou Dizhu Express',
+      tagline: 'Fight the landlord, on three phones.',
+      short: 'Dou Dizhu for three players on their own phones: bid to be the landlord and play against two farmers, with bombs and the rocket.',
+      icon: '/assets/img/cards/dou-dizhu.png',
+      status: 'in-development',
+      play: null,
+      privacy: false,
+      together: true,
+      tags: ['Cards', 'Bluetooth', 'No internet', 'Play nearby'],
+      facts: [['Players', '3, bots fill the rest'], ['Languages', '33'], ['Internet', 'Not needed'], ['Connects over', 'Bluetooth, Wi-Fi or Nearby'], ['Real money', 'None'], ['Requires', 'Android 8.0 or later']],
+      help: [
+        { slug: 'rules', title: 'The rules of Dou Dizhu', summary: 'Three players, with a pack of 54: the 52 and two jokers, a little one (black) and a big one (red).' },
+        { slug: 'host-a-table', title: 'Host a table', summary: 'One phone hosts the table: it deals, and the others join it.' },
+        { slug: 'join-a-table', title: 'Join a table', summary: 'Tap Join a table and choose the same way the host chose.' },
+        { slug: 'ways-to-connect', title: 'Ways to connect', summary: 'Wi-Fi: every phone on the same Wi-Fi network.' },
+        { slug: 'bots', title: 'Bots', summary: 'A bot is a player with no phone: the host\'s phone plays for it.' },
+        { slug: 'lost-touch', title: 'When a phone loses touch', summary: 'If a phone drops out, the table waits for it, and the host decides: wait for that player, or drop them and play on.' },
+        { slug: 'share-a-win', title: 'Sharing a win', summary: 'When you win a game, Share makes an "I won!" card with the final table, and Android\'s share sheet sends it wherever you choose.' }
+      ],
+      videos: []
+    },
 
     // ------------------------------------------------------------ games
     // Puzzles, arcade games and everything not played with a pack of cards.
