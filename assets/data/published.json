@@ -16,10 +16,12 @@
     "bb-roll": "com.nessaid.bbroll",
     "bowling": "com.nessaid.bowling",
     "brick-game": "com.nessaid.brickgame",
+    "bridge": "com.nessaid.expressbridge",
     "calculator": "com.nessaid.calculator",
     "callbreak": "com.nessaid.expresscallbreak",
     "location-alarm": "com.nessaid.locationalarm",
     "nest-hoppers": "com.nessaid.nesthoppers",
+    "poker": "com.nessaid.expresspoker",
     "rummy": "com.nessaid.expressrummy",
     "teen-patti": "com.nessaid.expressteenpatti",
     "twenty-eight": "com.nessaid.express28"
