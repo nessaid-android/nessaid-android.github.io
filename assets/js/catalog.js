@@ -419,7 +419,20 @@ window.NAS_CATALOG = {
         { slug: 'lost-touch', title: 'When a phone loses touch', summary: 'If a phone drops out, the table waits for it, and the host decides: wait for that player, or drop them and play on.' },
         { slug: 'share-a-win', title: 'Sharing a win', summary: 'When you win a game, Share makes an "I won!" card with the final table, and Android\'s share sheet sends it wherever you choose.' }
       ],
-      videos: []
+      videos: [
+        { youtube: '1jArWvoUIKw', short: true, src: '/cards/spades/videos/files/promo-1.0.0.mp4',
+          title: 'Spades Express',
+          summary: 'Spades for four phones in two partnerships, no internet: one hosts, the others join, and bots fill a short table.' },
+        { youtube: 'qDDzXuWUj4U', short: true, src: '/cards/spades/videos/files/explain-hosting.mp4',
+          title: 'How to host a table',
+          summary: 'Choose how the phones reach each other and open the table, read its code out or let the others scan it, seat bots if you are short of players, and start.' },
+        { youtube: '2Ouai-Vc7d8', src: '/cards/spades/videos/files/explain-bluetooth.mp4',
+          title: 'Two phones over Bluetooth, no network at all',
+          summary: 'Two phones never paired, with Wi-Fi and mobile data off: one hosts and reads its code out, the other types it and sits down.' },
+        { youtube: 'YGQpZuzfD0o', short: true, src: '/cards/spades/videos/files/explain-spades.mp4',
+          title: 'How to play Spades',
+          summary: 'Bid the tricks your side will take, or bid nil; spades are always trumps and are not led until broken.' }
+      ]
     },
     {
       slug: 'euchre',
