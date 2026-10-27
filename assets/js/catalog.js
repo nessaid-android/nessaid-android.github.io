@@ -454,7 +454,20 @@ window.NAS_CATALOG = {
         { slug: 'lost-touch', title: 'When a phone loses touch', summary: 'If a phone drops out, the table waits for it, and the host decides: wait for that player, or drop them and play on.' },
         { slug: 'share-a-win', title: 'Sharing a win', summary: 'When you win a game, Share makes an "I won!" card with the final table, and Android\'s share sheet sends it wherever you choose.' }
       ],
-      videos: []
+      videos: [
+        { youtube: 'EsjoEI46zYw', short: true, src: '/cards/29/videos/files/promo-1.0.0.mp4',
+          title: '29 Express',
+          summary: 'Twenty-nine for the phones in the room, no internet: one hosts, the others join, and bots fill a short table.' },
+        { youtube: 'Du0BkZyOD60', short: true, src: '/cards/29/videos/files/explain-hosting.mp4',
+          title: 'How to host a table',
+          summary: 'Choose how the phones reach each other and open the table, read its code out or let the others scan it, seat bots if you are short of players, and start.' },
+        { youtube: 'olJQn--8RTM', src: '/cards/29/videos/files/explain-bluetooth.mp4',
+          title: 'Two phones over Bluetooth, no network at all',
+          summary: 'Two phones never paired, with Wi-Fi and mobile data off: one hosts and reads its code out, the other types it and sits down.' },
+        { youtube: 'iOUOh5iEKD0', short: true, src: '/cards/29/videos/files/explain-twentynine.mp4',
+          title: 'How to play 29',
+          summary: 'Bid from 16 to 28, round and round until three pass, and set the trump face down; follow suit, and ask for the trump when you cannot.' }
+      ]
     },
     {
       slug: 'big-two',
