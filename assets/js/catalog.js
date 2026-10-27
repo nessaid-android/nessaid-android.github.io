@@ -382,7 +382,20 @@ window.NAS_CATALOG = {
         { slug: 'lost-touch', title: 'When a phone loses touch', summary: 'If a phone drops out, the table waits for it, and the host decides: wait for that player, or drop them and play on.' },
         { slug: 'share-a-win', title: 'Sharing a win', summary: 'When you win a game, Share makes an "I won!" card with the final table, and Android\'s share sheet sends it wherever you choose.' }
       ],
-      videos: []
+      videos: [
+        { youtube: 'gHfe4UFtbDo', short: true, src: '/cards/gin-rummy/videos/files/promo-1.0.0.mp4',
+          title: 'Gin Rummy Express',
+          summary: 'Gin rummy for two phones in a room, or one against a bot, no internet: one hosts, the other joins.' },
+        { youtube: 'kf0S4-H1NA4', short: true, src: '/cards/gin-rummy/videos/files/explain-hosting.mp4',
+          title: 'How to host a table',
+          summary: 'Choose how the phones reach each other and open the table, read its code out or let the other scan it, seat a bot if nobody else is coming, and start.' },
+        { youtube: 'xLtHkNynyoQ', src: '/cards/gin-rummy/videos/files/explain-bluetooth.mp4',
+          title: 'Two phones over Bluetooth, no network at all',
+          summary: 'Two phones never paired, with Wi-Fi and mobile data off: one hosts and reads its code out, the other types it and sits down.' },
+        { youtube: '_iuBPdFW-9c', short: true, src: '/cards/gin-rummy/videos/files/explain-gin.mp4',
+          title: 'How to play Gin Rummy',
+          summary: 'Take the upcard or pass, draw and discard, meld runs and sets, and knock with ten or less deadwood, or go gin.' }
+      ]
     },
     {
       slug: 'spades',
