@@ -26,6 +26,7 @@
     "nest-hoppers": "com.nessaid.nesthoppers",
     "poker": "com.nessaid.expresspoker",
     "rummy": "com.nessaid.expressrummy",
+    "spades": "com.nessaid.expressspades",
     "teen-patti": "com.nessaid.expressteenpatti",
     "twenty-eight": "com.nessaid.express28"
   }
