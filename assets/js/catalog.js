@@ -543,6 +543,54 @@ window.NAS_CATALOG = {
       ],
       videos: []
     },
+    {
+      slug: 'canasta',
+      section: 'cards',
+      name: 'Canasta Express',
+      tagline: 'Classic Canasta, in partnerships.',
+      short: 'Canasta for four players in two partnerships, or two players, each on their own phone: meld, make canastas, freeze the pile and go out.',
+      icon: '/assets/img/cards/canasta.png',
+      status: 'in-development',
+      play: null,
+      privacy: true,
+      together: true,
+      tags: ['Cards', 'Bluetooth', 'No internet', 'Play nearby'],
+      facts: [['Players', '4, or 2; bots fill the rest'], ['Languages', '33'], ['Internet', 'Not needed'], ['Connects over', 'Bluetooth, Wi-Fi or Nearby'], ['Real money', 'None'], ['Requires', 'Android 8.0 or later']],
+      help: [
+        { slug: 'rules', title: 'The rules of Canasta', summary: 'Classic Canasta, as Pagat gives it.' },
+        { slug: 'host-a-table', title: 'Host a table', summary: 'One phone hosts the table: it deals, and the others join it.' },
+        { slug: 'join-a-table', title: 'Join a table', summary: 'Tap Join a table and choose the same way the host chose.' },
+        { slug: 'ways-to-connect', title: 'Ways to connect', summary: 'Wi-Fi: every phone on the same Wi-Fi network.' },
+        { slug: 'bots', title: 'Bots', summary: 'A bot is a player with no phone: the host\'s phone plays for it.' },
+        { slug: 'lost-touch', title: 'When a phone loses touch', summary: 'If a phone drops out, the table waits for it, and the host decides: wait for that player, or drop them and play on.' },
+        { slug: 'share-a-win', title: 'Sharing a win', summary: 'When you win a game, Share makes an "I won!" card with the final table, and Android\'s share sheet sends it wherever you choose.' }
+      ],
+      videos: []
+    },
+    {
+      slug: 'durak',
+      section: 'cards',
+      name: 'Durak Express',
+      tagline: 'Durak, both ways, for two to six phones.',
+      short: 'Durak for two to six players on their own phones: Podkidnoy or Perevodnoy, beat every card or pick up, and do not be the fool.',
+      icon: '/assets/img/cards/durak.png',
+      status: 'in-development',
+      play: null,
+      privacy: true,
+      together: true,
+      tags: ['Cards', 'Bluetooth', 'No internet', 'Play nearby'],
+      facts: [['Players', '2 to 6, bots fill the rest'], ['Languages', '33'], ['Internet', 'Not needed'], ['Connects over', 'Bluetooth, Wi-Fi or Nearby'], ['Real money', 'None'], ['Requires', 'Android 8.0 or later']],
+      help: [
+        { slug: 'rules', title: 'The rules of Durak', summary: 'Two to six players, each for themselves.' },
+        { slug: 'host-a-table', title: 'Host a table', summary: 'One phone hosts the table: it deals, and the others join it.' },
+        { slug: 'join-a-table', title: 'Join a table', summary: 'Tap Join a table and choose the same way the host chose.' },
+        { slug: 'ways-to-connect', title: 'Ways to connect', summary: 'Wi-Fi: every phone on the same Wi-Fi network.' },
+        { slug: 'bots', title: 'Bots', summary: 'A bot is a player with no phone: the host\'s phone plays for it.' },
+        { slug: 'lost-touch', title: 'When a phone loses touch', summary: 'If a phone drops out, the table waits for it, and the host decides: wait for that player, or drop them and play on.' },
+        { slug: 'share-a-win', title: 'Sharing a win', summary: 'When you win a game, Share makes an "I won!" card with the final table, and Android\'s share sheet sends it wherever you choose.' }
+      ],
+      videos: []
+    },
 
     // ------------------------------------------------------------ games
     // Puzzles, arcade games and everything not played with a pack of cards.
