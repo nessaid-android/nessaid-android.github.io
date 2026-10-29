@@ -55,7 +55,9 @@ which is in `games`.
 Current slugs:
 
 - `apps/battery-alarm`, `apps/alarm-clock`, `apps/location-alarm`, `apps/calculator`
-- `cards/rummy`, `cards/teen-patti`, `cards/twenty-eight`, `cards/callbreak`, `cards/poker`, `cards/bridge`
+- `cards/rummy`, `cards/teen-patti`, `cards/twenty-eight`, `cards/callbreak`, `cards/poker`, `cards/bridge`,
+  `cards/gin-rummy`, `cards/spades`, `cards/euchre`, `cards/29`, `cards/big-two`, `cards/dou-dizhu`,
+  `cards/canasta`, `cards/durak`
 - `games/2048-puzzle`, `games/brick-game`, `games/archery`, `games/nest-hoppers`, `games/bb-roll`, `games/marble-solitaire`, `games/blank-atlas`
 
 **A slug is part of a URL that Play listings and people link to, so never rename
