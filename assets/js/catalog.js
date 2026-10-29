@@ -617,6 +617,30 @@ window.NAS_CATALOG = {
       ],
       videos: []
     },
+    {
+      slug: 'truco',
+      section: 'cards',
+      name: 'Truco Express',
+      tagline: 'Call Truco, raise the hand, and bluff.',
+      short: 'Truco for two or four players on their own phones: Paulista, Mineiro or Argentino, with the Spanish pack, the envido and flor.',
+      icon: '/assets/img/cards/truco.png',
+      status: 'in-development',
+      play: null,
+      privacy: true,
+      together: true,
+      tags: ['Cards', 'Bluetooth', 'No internet', 'Play nearby'],
+      facts: [['Players', '4, or 2; bots fill the rest'], ['Languages', '33'], ['Internet', 'Not needed'], ['Connects over', 'Bluetooth, Wi-Fi or Nearby'], ['Real money', 'None'], ['Requires', 'Android 8.0 or later']],
+      help: [
+        { slug: 'rules', title: 'The rules of Truco', summary: 'Truco is played two against two, partners facing, or one against one, with a pack of forty: ace to seven and the three court cards of each suit.' },
+        { slug: 'host-a-table', title: 'Host a table', summary: 'One phone hosts the table: it deals, and the others join it.' },
+        { slug: 'join-a-table', title: 'Join a table', summary: 'Tap Join a table and choose the same way the host chose.' },
+        { slug: 'ways-to-connect', title: 'Ways to connect', summary: 'Wi-Fi: every phone on the same Wi-Fi network.' },
+        { slug: 'bots', title: 'Bots', summary: 'A bot is a player with no phone: the host\'s phone plays for it.' },
+        { slug: 'lost-touch', title: 'When a phone loses touch', summary: 'If a phone drops out, the table waits for it, and the host decides: wait for that player, or drop them and play on.' },
+        { slug: 'share-a-win', title: 'Sharing a win', summary: 'When you win a game, Share makes an "I won!" card with the final table, and Android\'s share sheet sends it wherever you choose.' }
+      ],
+      videos: []
+    },
 
     // ------------------------------------------------------------ games
     // Puzzles, arcade games and everything not played with a pack of cards.
