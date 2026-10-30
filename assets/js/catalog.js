@@ -591,7 +591,20 @@ window.NAS_CATALOG = {
         { slug: 'lost-touch', title: 'When a phone loses touch', summary: 'If a phone drops out, the table waits for it, and the host decides: wait for that player, or drop them and play on.' },
         { slug: 'share-a-win', title: 'Sharing a win', summary: 'When you win a game, Share makes an "I won!" card with the final table, and Android\'s share sheet sends it wherever you choose.' }
       ],
-      videos: []
+      videos: [
+        { youtube: 'FVsbju21ZiI', short: true, src: '/cards/canasta/videos/files/promo-1.0.0.mp4',
+          title: 'Canasta Express',
+          summary: 'Classic Canasta for four phones in two partnerships, or two head to head, no internet: one hosts, the others join, and bots fill a short table.' },
+        { youtube: '6cdi8H4S_IQ', short: true, src: '/cards/canasta/videos/files/explain-hosting.mp4',
+          title: 'How to host a table',
+          summary: 'Choose how the phones reach each other and open the table, read its code out or let the others scan it, seat a bot if you are short of players, arrange the partners and start.' },
+        { youtube: 'BPpM8RerdUI', src: '/cards/canasta/videos/files/explain-bluetooth.mp4',
+          title: 'Two phones over Bluetooth, no network at all',
+          summary: 'Two phones never paired, with Wi-Fi and mobile data off: one hosts and reads its code out, the other types it and sits down.' },
+        { youtube: 'Q4fQ3V0JbBY', short: true, src: '/cards/canasta/videos/files/explain-canasta.mp4',
+          title: 'How to play Canasta',
+          summary: 'Meld three or more of a rank, make canastas of seven, take the pile when you can use its top card, and go out with a canasta after asking your partner.' }
+      ]
     },
     {
       slug: 'durak',
