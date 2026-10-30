@@ -652,7 +652,20 @@ window.NAS_CATALOG = {
         { slug: 'lost-touch', title: 'When a phone loses touch', summary: 'If a phone drops out, the table waits for it, and the host decides: wait for that player, or drop them and play on.' },
         { slug: 'share-a-win', title: 'Sharing a win', summary: 'When you win a game, Share makes an "I won!" card with the final table, and Android\'s share sheet sends it wherever you choose.' }
       ],
-      videos: []
+      videos: [
+        { youtube: 'D7C7lgKmJMc', short: true, src: '/cards/truco/videos/files/promo-1.0.0.mp4',
+          title: 'Truco Express',
+          summary: 'Truco as Brazil and Argentina play it, for two or four phones, no internet: one hosts, the others join, and bots fill a short table.' },
+        { youtube: 'moaS6Ir0oHc', short: true, src: '/cards/truco/videos/files/explain-hosting.mp4',
+          title: 'How to host a table',
+          summary: 'Choose how the phones reach each other and open the table, read its code out or let the others scan it, seat a bot if you are short of players, choose the Truco and start.' },
+        { youtube: '9vtmyZQ931s', src: '/cards/truco/videos/files/explain-bluetooth.mp4',
+          title: 'Two phones over Bluetooth, no network at all',
+          summary: 'Two phones never paired, with Wi-Fi and mobile data off: one hosts and reads its code out, the other types it and sits down.' },
+        { youtube: '7IzdpcWEd94', short: true, src: '/cards/truco/videos/files/explain-truco.mp4',
+          title: 'How to play Truco',
+          summary: 'Three cards each, the best two of three tricks take the hand, and any hand can be raised: Truco, Seis, Nove, Doze in Brazil; Truco, Retruco, Vale Cuatro, with the envido, in Argentina.' }
+      ]
     },
 
     // ------------------------------------------------------------ games
