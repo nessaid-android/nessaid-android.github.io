@@ -24,7 +24,8 @@ Run from the repository root:
       fetch it once a day to learn which products are on Play, so a product
       going live is one commit here rather than a re-release of every app.
       The file also carries tools/house_settings.json as its "settings" - how
-      the apps' house ads behave - which is the one part edited by hand.
+      the apps' house ads behave, and whether they ask an ad network at all -
+      which is the one part edited by hand.
 
   python tools/site.py check
       Reports products whose folders, help pages or privacy pages disagree with
@@ -193,6 +194,14 @@ HOUSE_SETTINGS = {
     "share_percent": (int, (0, 50)),
     "share_cooloff_minutes": (int, (1, 24 * 60)),
     "hidden": (list, None),
+    # The network switch (1 Nov 2026, with the AdMob account suspended for
+    # invalid traffic): false, a slug listed, or a build below its slug's
+    # versionCode, and those apps ask no ad network - house ads go on. It
+    # reaches builds already on phones, and an off is cached there until a
+    # later file says otherwise. Absent is "as built", which is on.
+    "network_ads": (bool, None),
+    "network_ads_off": (list, None),
+    "network_ads_min_version": (dict, None),
 }
 
 
@@ -224,9 +233,20 @@ def house_settings():
             sys.exit("house_settings.json: %s must be %s" % (key, kind.__name__))
         if limits and not limits[0] <= value <= limits[1]:
             sys.exit("house_settings.json: %s must be %d..%d" % (key, limits[0], limits[1]))
-    for slug in settings.get("hidden", []):
+    for key in ("hidden", "network_ads_off"):
+        for slug in settings.get(key, []):
+            if not isinstance(slug, str) or slug not in slugs:
+                sys.exit("house_settings.json: %s names %r, which is not a slug in catalog.js"
+                         % (key, slug))
+    # The apps drop an entry that is not a whole number of at least 1, which
+    # would leave that app's old builds asking the network: refused here.
+    for slug, version in settings.get("network_ads_min_version", {}).items():
         if slug not in slugs:
-            sys.exit("house_settings.json: hidden names '%s', which is not a slug in catalog.js" % slug)
+            sys.exit("house_settings.json: network_ads_min_version names '%s', which is not"
+                     " a slug in catalog.js" % slug)
+        if not isinstance(version, int) or isinstance(version, bool) or version < 1:
+            sys.exit("house_settings.json: network_ads_min_version for %s must be a"
+                     " versionCode, a whole number of at least 1" % slug)
     return settings
 
 
