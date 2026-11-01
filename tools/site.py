@@ -194,6 +194,16 @@ HOUSE_SETTINGS = {
     "share_percent": (int, (0, 50)),
     "share_cooloff_minutes": (int, (1, 24 * 60)),
     "hidden": (list, None),
+    # Slug to weight in the house-ad pick, 0..10, an app not named weighing 1:
+    # 3 is about three times as often - for a launch. 0 is as good as hidden.
+    "weights": (dict, None),
+    # true: a house banner standing in for an ad network that could not fill
+    # stays up through the slot's reload wait, instead of a dark slot. The
+    # network is asked exactly when it would have been. Absent is off.
+    "house_hold_on_fail": (bool, None),
+    # More house ads for a while, ending by itself on every phone after
+    # "until" - see PROMO below and HousePromo in nessaid_ads.
+    "promo": (dict, None),
     # The network switch (1 Nov 2026, with the AdMob account suspended for
     # invalid traffic): false, a slug listed, or a build below its slug's
     # versionCode, and those apps ask no ad network - house ads go on. It
@@ -203,6 +213,68 @@ HOUSE_SETTINGS = {
     "network_ads_off": (list, None),
     "network_ads_min_version": (dict, None),
 }
+
+# What "promo" may say. A promotion raises the house ads past the ordinary
+# ceilings, so it has to end: "until" is required, is the last day it applies
+# by each phone's own date, and may be at most PROMO_MAX_DAYS after the day
+# the file is generated - the apps hold it to the same from the file's
+# "updated" date, so a mistyped year is two months there, and refused here.
+# Every other key may be left out and is then the ordinary value. Nothing in
+# it touches the ad network's own pacing: house ads only.
+PROMO_MAX_DAYS = 62
+PROMO = {
+    "until": (str, None),
+    "share_percent": (int, (0, 90)),
+    "share_cooloff_minutes": (int, (1, 24 * 60)),
+    # The house interstitial's close button and Back wait five seconds; a
+    # promotion shows more of them and may make it three or four.
+    "close_after_seconds": (int, (3, 5)),
+    "interstitial": (dict, None),
+}
+# House interstitials' own allowance while it runs. Without this block they
+# stay under each app's paid pacing; with it, they are counted apart, and no
+# two full-screen ads of either kind come closer than min_gap_minutes.
+PROMO_INTERSTITIAL = {
+    "chance_percent": (int, (0, 80)),
+    "min_gap_minutes": (int, (2, 24 * 60)),
+    "daily_cap": (int, (0, 12)),
+    "install_grace_hours": (int, (0, 7 * 24)),
+}
+
+
+def check_keys(where, values, known):
+    """Each key of values known, of its type and in its range; exits otherwise."""
+    for key, value in values.items():
+        if key not in known:
+            sys.exit("house_settings.json: unknown key '%s%s' - the apps would ignore it"
+                     % (where, key))
+        kind, limits = known[key]
+        # bool is an int in Python, so 'true' would pass for a percentage.
+        if not isinstance(value, kind) or (kind is int and isinstance(value, bool)):
+            sys.exit("house_settings.json: %s%s must be %s" % (where, key, kind.__name__))
+        if limits and not limits[0] <= value <= limits[1]:
+            sys.exit("house_settings.json: %s%s must be %d..%d"
+                     % (where, key, limits[0], limits[1]))
+
+
+def check_promo(promo):
+    """The promo block: its keys, and an end that is a date and not far off."""
+    check_keys("promo.", promo, PROMO)
+    check_keys("promo.interstitial.", promo.get("interstitial", {}), PROMO_INTERSTITIAL)
+    if "until" not in promo:
+        sys.exit("house_settings.json: promo needs \"until\", the last day it applies -"
+                 " the apps ignore a promotion without one")
+    try:
+        until = datetime.date.fromisoformat(promo["until"])
+    except ValueError:
+        sys.exit("house_settings.json: promo.until must be a date, YYYY-MM-DD")
+    today = datetime.date.today()
+    if until > today + datetime.timedelta(days=PROMO_MAX_DAYS):
+        sys.exit("house_settings.json: promo.until is %s, more than %d days from today;"
+                 " the apps would end it on %s" % (until, PROMO_MAX_DAYS,
+                                                    today + datetime.timedelta(days=PROMO_MAX_DAYS)))
+    if until < today:
+        print("note: promo.until (%s) has passed; the apps ignore the promotion" % until)
 
 
 def house_settings():
@@ -224,15 +296,17 @@ def house_settings():
     if not isinstance(settings, dict):
         sys.exit("house_settings.json: must be an object")
     slugs = set(slug for slug, _ in catalog_play())
-    for key, value in settings.items():
-        if key not in HOUSE_SETTINGS:
-            sys.exit("house_settings.json: unknown key '%s' - the apps would ignore it" % key)
-        kind, limits = HOUSE_SETTINGS[key]
-        # bool is an int in Python, so 'true' would pass for a percentage.
-        if not isinstance(value, kind) or (kind is int and isinstance(value, bool)):
-            sys.exit("house_settings.json: %s must be %s" % (key, kind.__name__))
-        if limits and not limits[0] <= value <= limits[1]:
-            sys.exit("house_settings.json: %s must be %d..%d" % (key, limits[0], limits[1]))
+    check_keys("", settings, HOUSE_SETTINGS)
+    if "promo" in settings:
+        check_promo(settings["promo"])
+    # The apps drop a weight that is not a whole number (the app then weighs
+    # 1) and clamp one out of range: both refused here, where they are heard.
+    for slug, weight in settings.get("weights", {}).items():
+        if slug not in slugs:
+            sys.exit("house_settings.json: weights names '%s', which is not a slug in"
+                     " catalog.js" % slug)
+        if not isinstance(weight, int) or isinstance(weight, bool) or not 0 <= weight <= 10:
+            sys.exit("house_settings.json: weights for %s must be a whole number, 0..10" % slug)
     for key in ("hidden", "network_ads_off"):
         for slug in settings.get(key, []):
             if not isinstance(slug, str) or slug not in slugs:
