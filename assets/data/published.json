@@ -8,7 +8,7 @@
     "share_cooloff_minutes": 10,
     "hidden": [],
     "house_hold_on_fail": true,
-    "promo": {"until": "2026-12-01", "share_percent": 75, "interstitial": {"chance_percent": 50, "min_gap_minutes": 3, "daily_cap": 8, "install_grace_hours": 0}}
+    "promo": {"until": "2026-12-01", "share_percent": 25, "interstitial": {"chance_percent": 50, "min_gap_minutes": 3, "daily_cap": 8, "install_grace_hours": 0}}
   },
   "apps": {
     "2048-puzzle": "com.nessaid.puzzle2048",

@@ -7,7 +7,7 @@
   "house_hold_on_fail": true,
   "promo": {
     "until": "2026-12-01",
-    "share_percent": 75,
+    "share_percent": 25,
     "interstitial": {
       "chance_percent": 50,
       "min_gap_minutes": 3,
