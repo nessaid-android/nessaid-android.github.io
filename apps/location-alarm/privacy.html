@@ -28,12 +28,12 @@
   -->
   <article class="doc">
     <h1>Privacy policy: Location Alarm</h1>
-    <p class="lede">Last updated 14 October 2026</p>
+    <p class="lede">Last updated 4 November 2026</p>
 
     <p>Location Alarm is an Android app published by Nessaid Android Studio. It rings when you arrive at, or leave, a place you pick on a map. It also has a GPS panel and a track recorder. Because it works with your location, this policy says exactly where that location goes, and where it does not.</p>
 
     <h2>What we collect: nothing</h2>
-    <p>There is no account, no sign-in and no server of ours. We never receive your location, your places, your tracks or anything else from the app. There is no analytics and no crash reporting.</p>
+    <p>There is no account, no sign-in and no server of ours. We never receive your location, your places, your tracks or anything else from the app. The app has no analytics and no crash reporting of its own. The ad libraries it includes send their own data to the companies behind them, as described under Advertising.</p>
 
     <h2>Your location</h2>
     <p>The app reads your location from the phone's own GPS and network location, and uses it on the phone to decide whether you have reached a place. The app itself never sends a location fix anywhere.</p>
@@ -60,13 +60,13 @@
       <li><strong>Alert history</strong>: for each alarm that went off, the place name, the time, how close you were and how it ended, plus the phone settings that affect alarms, such as volume and Do Not Disturb. It is on by default, holds no coordinates, can be switched off or cleared in Settings, and is deleted automatically after 30 days.</li>
       <li><strong>Recorded tracks</strong>: for each point, the position, accuracy, speed and time. Tracks are kept until you delete them.</li>
       <li><strong>Your last position while an alarm was armed</strong>, with its time, so an armed alarm can carry on correctly after the app or phone restarts. It is replaced as you move and cleared when you arm an alarm by hand.</li>
-      <li><strong>Your settings</strong>, and small records the app keeps for itself: when each permission was last seen allowed, and when a full-screen ad was last shown.</li>
+      <li><strong>Your settings</strong>, and small records the app keeps for itself: when each permission was last seen allowed, when a full-screen ad was last shown, and whether you have bought Remove ads, with when Google Play last confirmed it.</li>
     </ul>
     <p>All of this is in the app's private storage and is deleted when you uninstall the app. Your places and alarms, the alert history, your last armed position and your settings are kept in the part of it Android makes available from start-up, so that an armed alarm can be watched and can ring after a restart, before you unlock the phone. It is still private to the app and still encrypted on the phone. Recorded tracks are kept in the part that opens only once you unlock.</p>
 
     <h2>Backups</h2>
     <p><strong>Your own backup file.</strong> Settings can save a backup file to wherever you choose, and load one back. It contains your alarms and their places, your saved tracks and your settings, but not the alert history. The file goes only where you put it.</p>
-    <p><strong>Android's backup.</strong> The app allows Android's standard backup. If backup is switched on in your phone's settings, Android includes the app's data in your Google account backup, and when you move to a new phone. That includes your places and alarms, the alert history and your settings. It does not include your recorded tracks - the app's own backup file in Settings carries those - nor the ad or consent records. It is Android's backup, stored in your own Google account, and we never receive it or see it. You can switch it off in your phone's settings under Google, then Backup.</p>
+    <p><strong>Android's backup.</strong> The app allows Android's standard backup. If backup is switched on in your phone's settings, Android includes the app's data in your Google account backup, and when you move to a new phone. That includes your places and alarms, the alert history and your settings. It does not include your recorded tracks - the app's own backup file in Settings carries those - nor the ad, consent or purchase records (Google Play restores a purchase by itself). It is Android's backup, stored in your own Google account, and we never receive it or see it. You can switch it off in your phone's settings under Google, then Backup.</p>
 
     <h2>Sharing</h2>
     <p>Nothing leaves the app unless you share it. You can share a recorded track as text or as a KML file for Google Earth and other map apps. Either way it goes to the app you pick, and sharing as text also copies it to the clipboard. The About screen can share a link to the app's Play listing.</p>
@@ -75,15 +75,19 @@
     <p>An alarm can speak its message aloud using your phone's text-to-speech engine. Which engine that is, and how it works, is set in your phone's settings, not by this app.</p>
 
     <h2>Advertising</h2>
-    <p>The app shows banner ads on the main, alarm editing and settings screens. Occasionally it shows a full-screen ad when you leave the alarm editor or Settings, or after you dismiss an alarm. Both kinds come from Google AdMob.</p>
+    <p>The app shows banner ads on the main, alarm editing and settings screens. Occasionally it shows a full-screen ad when you leave the alarm editor or Settings, or after you dismiss an alarm. Ads come from two ad networks, Google AdMob and Yandex Mobile Ads: for each ad the app asks one, and asks the other only if the first has nothing to show. Some ads are for our own other apps; those are chosen on the phone from a list the app fetches from this website about once a day, and that request carries nothing about you beyond the IP address every internet request carries.</p>
     <p>Ads are never shown on the screen of a ringing alarm or over the lock screen. No full-screen ad appears while an alarm is ringing, when one is about to go off, or in the first two days after you install the app.</p>
-    <p>Google's ad SDK sends four kinds of information to Google in order to select and measure ads: your device's advertising ID, your interactions with the ads themselves, diagnostic information about how the SDK performed, and your IP address, from which an approximate location can be estimated. The app does not pass your location, your places or your tracks to the ad SDK.</p>
-    <p>That is Google's processing, not ours. We receive no personal data from it and see only aggregate performance figures. This is also what the app declares on its Google Play data safety page, and the two are meant to say the same thing.</p>
-    <p><a href="https://policies.google.com/privacy" rel="noopener">Google Privacy Policy</a> &middot; <a href="https://policies.google.com/technologies/partner-sites" rel="noopener">How Google uses information from sites or apps that use its services</a></p>
+    <p>Google's ad SDK sends four kinds of information to Google in order to select and measure ads: your device's advertising ID, your interactions with the ads themselves, diagnostic information about how the SDK performed, and your IP address, from which an approximate location can be estimated.</p>
+    <p>Yandex's ad SDK sends Yandex your device's advertising ID and the information an ad request carries, such as your IP address, the device model and its language, to select and measure ads. It includes AppMetrica, Yandex's analytics library, which Yandex uses for its ads; the app does not use it for anything of its own. The app switches off Yandex's location tracking and leaves out AppMetrica's location component, so Yandex is never given your position.</p>
+    <p>The app does not pass your location, your places or your tracks to either ad SDK. What the SDKs do is Google's and Yandex's processing, not ours. We receive no personal data from either and see only aggregate performance figures. This is also what the app declares on its Google Play data safety page, and the two are meant to say the same thing.</p>
+    <p><a href="https://policies.google.com/privacy" rel="noopener">Google Privacy Policy</a> &middot; <a href="https://policies.google.com/technologies/partner-sites" rel="noopener">How Google uses information from sites or apps that use its services</a> &middot; <a href="https://yandex.com/legal/confidential/" rel="noopener">Yandex Privacy Policy</a> &middot; <a href="https://yandex.com/legal/mobileads_sdk_agreement/" rel="noopener">Yandex Mobile Ads SDK terms</a></p>
     <p>You can reset or delete your advertising ID, and opt out of ad personalisation, in your phone's settings under Google, then Ads. The alarms work the same either way; the ads simply become less relevant.</p>
 
+    <h2>Removing the ads</h2>
+    <p>Remove ads, in the menu and in Settings, is a one-time purchase through Google Play. After it the app shows no ads and does not start either ad SDK at all. Payment is handled entirely by Google Play: we never see your card or payment details. Google gives us a record of the order (an order number, the product, the price and the date) so that we can handle refunds. The app asks Google Play whether you have bought it, and remembers the answer on the phone; when you reinstall or move to a new phone with the same Google account, Google Play restores the purchase.</p>
+
     <h2>Consent, for users in the EEA, the UK and Switzerland</h2>
-    <p>If you are in one of those regions, the app asks for your consent before any ad is requested, using Google's certified consent platform. If you decline, you will see non-personalised ads or none at all; the alarms work exactly the same either way. Your choice is stored on the device. Where that form was shown, the app's menu has <strong>Privacy choices</strong>, which opens it again at any time.</p>
+    <p>If you are in one of those regions, the app asks for your consent before any ad is requested, using Google's certified consent platform, and passes your answer to both ad networks. If you decline, you will see non-personalised ads or none at all; the alarms work exactly the same either way. Your choice is stored on the device. Where that form was shown, the app's menu has <strong>Privacy choices</strong>, which opens it again at any time.</p>
 
     <h2>Permissions, and why</h2>
     <p>You are asked for location and notifications, and once, after you first arm an alarm, whether to allow location all the time, which is optional. Exact alarms, the full-screen alarm screen and battery optimisation are settings the app can take you to, where you decide. The rest are granted at install and never prompt you.</p>
@@ -98,9 +102,11 @@
       <li><strong>Wake lock</strong>: to keep the phone awake while an alarm is ringing.</li>
       <li><strong>Turn the screen on</strong>: to turn the screen on when an alarm rings. Android grants nothing by it unless you allow it under Special app access.</li>
       <li><strong>Vibrate</strong>: for the vibration alert.</li>
-      <li><strong>Internet and network state</strong>: for the map, place search, short links and ads.</li>
-      <li><strong>Advertising ID, and Android's ad services</strong>: used only by Google AdMob, as described above. Declared by the ad SDK.</li>
-      <li><strong>Basic phone state</strong>: declared by the ad SDK. The app does not read it.</li>
+      <li><strong>Internet and network state</strong>: for the map, place search, short links, ads and the list of our own apps shown in them.</li>
+      <li><strong>Advertising ID, and Android's ad services</strong>: used only by the ad SDKs, Google AdMob and Yandex Mobile Ads, as described above. Declared by the ad SDKs.</li>
+      <li><strong>Basic phone state</strong>: declared by Google's ad SDK. The app does not read it.</li>
+      <li><strong>Install referrer</strong>: declared by Yandex's ad SDK, which uses it to tell which store installed the app.</li>
+      <li><strong>Google Play billing</strong>: for the Remove ads purchase.</li>
     </ul>
     <p>The app also reads the phone's motion sensor for the shake-to-dismiss option, its proximity sensor to tell when the phone is in a pocket while you dismiss an alarm, and its compass. None of these needs a permission, and their readings are not stored or sent anywhere. The app does not use your contacts, camera, microphone, calendar or files.</p>
 
