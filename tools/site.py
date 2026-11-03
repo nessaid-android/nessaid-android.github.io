@@ -212,7 +212,19 @@ HOUSE_SETTINGS = {
     "network_ads": (bool, None),
     "network_ads_off": (list, None),
     "network_ads_min_version": (dict, None),
+    # One network at a time (4 Nov 2026, with Yandex beside AdMob): "networks"
+    # is each network on or off for every app, {"admob": false}, and
+    # "network_overrides" an app's own, {"location-alarm": {"admob": true}},
+    # over it either way. Checked after the three above, which still switch
+    # every network off and still win. Read only by builds with the library
+    # of 4 Nov 2026 or later; older ones obey the three above alone.
+    "networks": (dict, None),
+    "network_overrides": (dict, None),
 }
+
+# The names "networks" and "network_overrides" may use: the networks the
+# library knows. A typo would otherwise be a network nobody asks about.
+AD_NETWORKS = ("admob", "yandex")
 
 # What "promo" may say. A promotion raises the house ads past the ordinary
 # ceilings, so it has to end: "until" is required, is the last day it applies
@@ -321,6 +333,24 @@ def house_settings():
         if not isinstance(version, int) or isinstance(version, bool) or version < 1:
             sys.exit("house_settings.json: network_ads_min_version for %s must be a"
                      " versionCode, a whole number of at least 1" % slug)
+    # The apps drop a value that is not true or false, and a name they do not
+    # know is a network nobody asks about: both refused here.
+    def check_switches(where, switches):
+        if not isinstance(switches, dict):
+            sys.exit("house_settings.json: %s must be an object of network to true/false"
+                     % where)
+        for name, on in switches.items():
+            if name not in AD_NETWORKS:
+                sys.exit("house_settings.json: %s names network '%s'; known: %s"
+                         % (where, name, ", ".join(AD_NETWORKS)))
+            if not isinstance(on, bool):
+                sys.exit("house_settings.json: %s.%s must be true or false" % (where, name))
+    check_switches("networks", settings.get("networks", {}))
+    for slug, own in settings.get("network_overrides", {}).items():
+        if slug not in slugs:
+            sys.exit("house_settings.json: network_overrides names '%s', which is not"
+                     " a slug in catalog.js" % slug)
+        check_switches("network_overrides." + slug, own)
     return settings
 
 
