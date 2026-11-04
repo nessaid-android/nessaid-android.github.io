@@ -30,7 +30,7 @@
   -->
   <article class="doc">
     <h1>Privacy policy: Nessaid Calculator</h1>
-    <p class="lede">Last updated 29 September 2026</p>
+    <p class="lede">Last updated 4 November 2026</p>
 
     <p>Nessaid Calculator is an Android app published by Nessaid Android Studio. It is a
     calculator with scientific, programmer and statistics modes, a unit converter, finance
@@ -40,12 +40,14 @@
     <h2>What the app collects: nothing</h2>
     <p>The app has no account, no sign-in and no server of its own. It does not ask for your
     name, your email address or any other personal detail, and there is nowhere for it to send
-    one. There is no analytics and no crash reporting.</p>
+    one. The app has no analytics and no crash reporting of its own. The ad libraries it
+    includes send their own data to the companies behind them, as described under
+    Advertising.</p>
 
     <p><strong>Nothing you calculate leaves your device.</strong> No expression you type, no
     answer, no stored value, no figure you enter into a finance form and no amount you convert
-    is ever transmitted anywhere. The two things that do use the network are described below,
-    and neither of them carries any of it.</p>
+    is ever transmitted anywhere. The things that do use the network, exchange rates and
+    advertising, are described below, and none of them carries any of it.</p>
 
     <h2>What stays on your device</h2>
     <ul>
@@ -57,9 +59,16 @@
       last operation, and which rate sources the currency converter may use.</li>
       <li><strong>The last exchange rates fetched</strong>, with the date the source published
       them, so the converter works offline and does not fetch again for an hour.</li>
+      <li><strong>Small records the app keeps for itself</strong>: when a full-screen ad was last
+      shown, and whether you have bought Remove ads, with when Google Play last confirmed
+      it.</li>
     </ul>
     <p>All of it is in the app's own private storage on the phone, and uninstalling the app
-    removes it. Nothing in that list leaves the device.</p>
+    removes it. Nothing in that list leaves the device, except that if backup is switched on in
+    your phone's settings, Android may keep a copy of your settings in your own Google account,
+    or carry them in a transfer to a new phone. That is Android's backup, and we never receive
+    it. It never includes the exchange rates or the ad, consent or purchase records (Google Play
+    restores a purchase by itself).</p>
 
     <h2>Exchange rates</h2>
     <p>The currency converter downloads a table of rates. The request is a plain fetch of a
@@ -74,40 +83,69 @@
 
     <h2>Advertising</h2>
     <p>The app shows one banner above the keypad, and an occasional full-screen ad on the way
-    back from the operations guide, from Google AdMob.</p>
+    back from the operations guide. Ads come from two ad networks, Google AdMob and Yandex
+    Mobile Ads: for each ad the app asks one, and asks the other only if the first has nothing
+    to show. Some ads are for our own other apps; those are chosen on the phone from a list the
+    app fetches from this website about once a day, and that request carries nothing about you
+    beyond the IP address every internet request carries.</p>
     <p>Google's ad SDK sends four kinds of information to Google in order to select and measure
     ads: your device's advertising ID, your interactions with the ads themselves, diagnostic
     information about how the SDK performed, and your IP address, from which an approximate
-    location can be estimated. The app requests no location permission and cannot see where you
-    are; the estimate comes from the IP address every internet connection carries.</p>
-    <p>That is Google's processing, not ours. We receive no personal data from it and see only
-    aggregate performance figures. This is also what the app declares on its Google Play data
-    safety page, and the two are meant to say the same thing.</p>
+    location can be estimated.</p>
+    <p>Yandex's ad SDK sends Yandex your device's advertising ID and the information an ad
+    request carries, such as your IP address, the device model and its language, to select and
+    measure ads. It includes AppMetrica, Yandex's analytics library, which Yandex uses for its
+    ads; the app switches off its reporting of ad events and does not use it for anything of
+    its own. The app also switches off Yandex's location tracking and leaves out AppMetrica's
+    location component.</p>
+    <p>The app requests no location permission and cannot see where you are; any estimate
+    either company makes comes from the IP address every internet connection carries. What the
+    SDKs do is Google's and Yandex's processing, not ours. We receive no personal data from
+    either and see only aggregate performance figures. This is also what the app declares on its
+    Google Play data safety page, and the two are meant to say the same thing.</p>
     <p><a href="https://policies.google.com/privacy">Google Privacy Policy</a> &middot;
     <a href="https://policies.google.com/technologies/partner-sites">How Google uses information
-    from sites or apps that use its services</a></p>
+    from sites or apps that use its services</a> &middot;
+    <a href="https://yandex.com/legal/confidential/">Yandex Privacy Policy</a> &middot;
+    <a href="https://yandex.com/legal/mobileads_sdk_agreement/">Yandex Mobile Ads SDK terms</a></p>
     <p>You can reset or delete your advertising ID, and opt out of ad personalisation, in your
     phone's settings under Google, then Ads. The calculator works the same either way; the ads
     simply become less relevant.</p>
 
+    <h2>Removing the ads</h2>
+    <p>Remove ads, in the menu and in About, is a one-time purchase through Google Play. After
+    it the app shows no ads and does not start either ad SDK at all; nothing else in the app
+    changes. Payment is handled entirely by Google Play: we never see your card or payment
+    details. Google gives us a record of the order (an order number, the product, the price and
+    the date) so that we can handle refunds. The app asks Google Play whether you have bought
+    it, and remembers the answer on the phone without sending it anywhere; when you reinstall or
+    move to a new phone with the same Google account, Google Play restores the purchase.</p>
+
     <h2>Consent, for users in the EEA, the UK and Switzerland</h2>
     <p>If you are in the European Economic Area, the United Kingdom or Switzerland, the app
     shows Google's consent form before requesting any ad, and your answer is stored on your
-    device by Google's User Messaging Platform. Choosing not to consent to personalised ads does
-    not restrict any part of the calculator.</p>
+    device by Google's User Messaging Platform and passed to both ad networks. Choosing not to
+    consent to personalised ads does not restrict any part of the calculator. Where that form
+    was shown, the app's menu has <strong>Privacy choices</strong>, which opens it again at any
+    time.</p>
 
     <h2>Permissions, and why</h2>
-    <p>The app itself requests no permissions. The ones you may see listed come from Google's ad
-    SDK, which declares them in its own manifest:</p>
+    <p>The app itself requests no permissions. The ones you may see listed come from the ad
+    SDKs and Google Play's billing library, which declare them in their own manifests:</p>
     <ul>
-      <li><strong>Internet and network state</strong>: used to load ads and to download exchange
-      rates. Nothing else in the app uses the network.</li>
-      <li><strong>Advertising ID</strong>: used only by Google AdMob, as described above.</li>
-      <li><strong>Wake lock and foreground service</strong>: declared by the ad SDK. The
+      <li><strong>Internet and network state</strong>: used to load ads and the list of our own
+      apps shown in them, and to download exchange rates. Nothing else in the app uses the
+      network.</li>
+      <li><strong>Advertising ID</strong>: used only by the ad SDKs, Google AdMob and Yandex
+      Mobile Ads, as described above.</li>
+      <li><strong>Wake lock and foreground service</strong>: declared by Google's ad SDK. The
       calculator does not run in the background, does not keep your screen awake, and starts no
       service of its own.</li>
-      <li><strong>Basic phone state</strong>: declared by the ad SDK. The app does not read
+      <li><strong>Basic phone state</strong>: declared by Google's ad SDK. The app does not read
       it.</li>
+      <li><strong>Install referrer</strong>: declared by Yandex's ad SDK, which uses it to tell
+      which store installed the app.</li>
+      <li><strong>Google Play billing</strong>: for the Remove ads purchase.</li>
     </ul>
     <p>None of these prompts you. They are install-time declarations, not permissions you are
     asked to grant.</p>
