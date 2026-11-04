@@ -23,30 +23,35 @@
 
   <article class="doc">
     <h1>Privacy policy: Battery Alarm</h1>
-    <p class="lede">Last updated 14 October 2026</p>
+    <p class="lede">Last updated 4 November 2026</p>
 
     <p>Battery Alarm is an Android app published by Nessaid Android Studio. It watches the battery level and sounds an alarm at levels you choose. This policy explains what it does and does not collect.</p>
 
     <h2>What the app collects: nothing</h2>
-    <p>There is no account and no sign-in. The app does not collect, transmit or store any personal information on our side, because there is no server on our side. We cannot see your alarms, your settings or your battery.</p>
+    <p>There is no account and no sign-in. The app does not collect, transmit or store any personal information on our side, because there is no server on our side. We cannot see your alarms, your settings or your battery. The app has no analytics and no crash reporting of its own. The ad libraries it includes send their own data to the companies behind them, as described under Advertising.</p>
 
     <h2>What stays on your device</h2>
     <ul>
       <li><strong>Your alarms</strong>: the levels, notes and on/off state, kept in a database on the device.</li>
       <li><strong>Your preferences</strong>: alert sounds, durations, language, colour and so on.</li>
       <li><strong>Battery history</strong>: level, temperature, voltage and charging state, recorded on the device so the app can draw its history chart. Readings older than about a week are removed.</li>
+      <li><strong>Small records the app keeps for itself</strong>: when a full-screen ad was last shown, and whether you have bought Remove ads, with when Google Play last confirmed it.</li>
     </ul>
-    <p>The app never sends any of it anywhere, and uninstalling the app deletes it from the phone. If backup is switched on in your phone's settings, Android may keep a copy of your alarms, your preferences and the battery history in your own Google account, or carry them in a transfer to a new phone, and put it back on a new phone or a new install. That is Android's backup, and we never receive it. It never includes the ad or consent records.</p>
+    <p>The app never sends any of it anywhere, and uninstalling the app deletes it from the phone. If backup is switched on in your phone's settings, Android may keep a copy of your alarms, your preferences and the battery history in your own Google account, or carry them in a transfer to a new phone, and put it back on a new phone or a new install. That is Android's backup, and we never receive it. It never includes the ad, consent or purchase records (Google Play restores a purchase by itself).</p>
 
     <h2>Advertising</h2>
-    <p>The app shows banner ads, and occasionally a full-screen ad when you leave a settings or detail screen, through Google AdMob.</p>
-    <p>Google's ad SDK sends four kinds of information to Google in order to select and measure ads: your device's advertising ID, your interactions with the ads themselves, diagnostic information about how the SDK performed, and your IP address, from which an approximate location can be estimated. The app requests no location permission and cannot see where you are; the estimate comes from the IP address every internet connection carries.</p>
-    <p>That is Google's processing, not ours. We receive no personal data from it and see only aggregate performance figures. This is also what the app declares on its Google Play data safety page, and the two are meant to say the same thing.</p>
-    <p><a href="https://policies.google.com/privacy" rel="noopener">Google Privacy Policy</a> &middot; <a href="https://policies.google.com/technologies/partner-sites" rel="noopener">How Google uses information from sites or apps that use its services</a></p>
+    <p>The app shows banner ads, and occasionally a full-screen ad when you leave a settings or detail screen. Ads come from two ad networks, Google AdMob and Yandex Mobile Ads: for each ad the app asks one, and asks the other only if the first has nothing to show. Some ads are for our own other apps; those are chosen on the phone from a list the app fetches from this website about once a day, and that request carries nothing about you beyond the IP address every internet request carries.</p>
+    <p>Google's ad SDK sends four kinds of information to Google in order to select and measure ads: your device's advertising ID, your interactions with the ads themselves, diagnostic information about how the SDK performed, and your IP address, from which an approximate location can be estimated.</p>
+    <p>Yandex's ad SDK sends Yandex your device's advertising ID and the information an ad request carries, such as your IP address, the device model and its language, to select and measure ads. It includes AppMetrica, Yandex's analytics library, which Yandex uses for its ads; the app switches off its reporting of ad events and does not use it for anything of its own. The app also switches off Yandex's location tracking and leaves out AppMetrica's location component.</p>
+    <p>The app requests no location permission and cannot see where you are; any estimate either company makes comes from the IP address every internet connection carries. What the SDKs do is Google's and Yandex's processing, not ours. We receive no personal data from either and see only aggregate performance figures. This is also what the app declares on its Google Play data safety page, and the two are meant to say the same thing.</p>
+    <p><a href="https://policies.google.com/privacy" rel="noopener">Google Privacy Policy</a> &middot; <a href="https://policies.google.com/technologies/partner-sites" rel="noopener">How Google uses information from sites or apps that use its services</a> &middot; <a href="https://yandex.com/legal/confidential/" rel="noopener">Yandex Privacy Policy</a> &middot; <a href="https://yandex.com/legal/mobileads_sdk_agreement/" rel="noopener">Yandex Mobile Ads SDK terms</a></p>
     <p>You can reset or delete your advertising ID, and opt out of ad personalisation, in your phone's settings under Google, then Ads. The alarms work the same either way; the ads simply become less relevant.</p>
 
+    <h2>Removing the ads</h2>
+    <p>Remove ads, in the menu and in Preferences, is a one-time purchase through Google Play. After it the app shows no ads and does not start either ad SDK at all; nothing else in the app changes. Payment is handled entirely by Google Play: we never see your card or payment details. Google gives us a record of the order (an order number, the product, the price and the date) so that we can handle refunds. The app asks Google Play whether you have bought it, and remembers the answer on the phone without sending it anywhere; when you reinstall or move to a new phone with the same Google account, Google Play restores the purchase.</p>
+
     <h2>Consent, for users in the EEA, the UK and Switzerland</h2>
-    <p>If you are in one of those regions, the app asks for your consent before any ad is requested, using Google's certified consent platform. If you decline, you will see non-personalised ads or none at all; the alarms work exactly the same either way. Your choice is stored on the device. Where that form was shown, the app's menu has <strong>Privacy choices</strong>, which opens it again at any time.</p>
+    <p>If you are in one of those regions, the app asks for your consent before any ad is requested, using Google's certified consent platform, and passes your answer to both ad networks. If you decline, you will see non-personalised ads or none at all; the alarms work exactly the same either way. Your choice is stored on the device. Where that form was shown, the app's menu has <strong>Privacy choices</strong>, which opens it again at any time.</p>
 
     <h2>Permissions, and why</h2>
     <ul>
@@ -58,8 +63,10 @@
       <li><strong>Wake lock</strong>: to turn the screen on briefly when an alarm sounds.</li>
       <li><strong>Turn the screen on</strong>: to turn the screen on when an alarm rings. Android grants nothing by it unless you allow it under Special app access.</li>
       <li><strong>Vibrate</strong>: for the vibration alert.</li>
-      <li><strong>Internet and network state</strong>: used only to load ads. No other part of the app uses the network.</li>
-      <li><strong>Advertising ID</strong>: used only by Google AdMob, as described above.</li>
+      <li><strong>Internet and network state</strong>: used only for ads and the list of our own apps shown in them. No other part of the app uses the network.</li>
+      <li><strong>Advertising ID, and Android's ad services</strong>: used only by the ad SDKs, Google AdMob and Yandex Mobile Ads, as described above. Declared by the ad SDKs.</li>
+      <li><strong>Install referrer</strong>: declared by Yandex's ad SDK, which uses it to tell which store installed the app.</li>
+      <li><strong>Google Play billing</strong>: for the Remove ads purchase.</li>
     </ul>
 
     <h2>Children</h2>
