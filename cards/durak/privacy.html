@@ -22,7 +22,7 @@
   <nav data-product-subnav></nav>
 
   <!--
-    This page is the URL given to Google Play and to AdMob's consent messages.
+    This page is the URL given to Google Play (and, once the game has an AdMob app again, to AdMob's consent messages).
     Every statement must match what the shipped build does - the manifest's
     permissions, whether ads are on, what is stored. Set "privacy: true" for
     this product in catalog.js once it is accurate, which adds the link to the
@@ -98,13 +98,9 @@
     </ul>
     <p>That is collected and used by Yandex, not by us; we never see it tied to you.
     Yandex's <a href="https://yandex.com/legal/confidential/">privacy policy</a> describes what it
-    does with it. Ads are personalised only where you agreed to that (see Consent).
+    does with it. Where the ads are served at all, and how to limit them, is below.
     AppMetrica, Yandex's analytics, comes with its SDK and sends Yandex the same
     device information and advertising ID, with how its ads were delivered.</p>
-    <p><strong>To Google, for the consent question</strong> — where consent is required, Google's
-    consent tool works out whether it is and records your answer on the phone; it is
-    asked before any ad, and its <a href="https://policies.google.com/privacy">privacy policy</a>
-    covers it.</p>
     <h2>Sharing a win</h2>
     <p>When you win a game, its screen has a <strong>Share</strong> button. It makes a card of its own -- your name, the
     name of the game and how you won -- in the app's temporary storage and hands it, with a line of
@@ -122,13 +118,18 @@
     or no, and when it was checked - on the phone. Nothing about it is sent to us. Once it is
     bought, the advertising SDKs are not started, so nothing in the advertising paragraphs
     above leaves the phone.</p>
-    <h2>Consent, and how to change your mind</h2>
-    <p>Where consent is required — the EEA, the UK, Switzerland, and the US states with
-    their own rules — the app asks before any ad is requested, through Google's
-    consent tool, and the advertising SDK (Yandex's) is not started until you have
-    answered; your answer is passed to it, and it shows ads that are not personalised
-    unless you agreed.
-    You can change your answer at any time: <strong>Settings → Privacy choices</strong>.</p>
+    <h2>Where ads are served, and how to limit them</h2>
+    <p>In the EEA, the UK and Switzerland, where consent is required before personal data is
+    used for advertising, this version of the app asks no consent question, so it never
+    starts the advertising SDK there: nothing in the advertising paragraph above leaves
+    the phone, and the only ads shown are our own, for our other apps, which collect
+    nothing. The app tells where you are from your mobile network, your SIM card or the
+    phone's language and region, and where it cannot tell, it does not start the SDK.</p>
+    <p>Elsewhere, Yandex serves the ads, and may personalise them by the advertising ID. You
+    can limit that at any time in Android's settings (<strong>Settings → Privacy → Ads</strong>, or
+    <strong>Google → Ads</strong> on some phones): reset the advertising ID, or delete it, and the ads
+    are no longer tied to it. Buying <strong>Remove ads</strong> turns the advertising SDK off
+    altogether.</p>
     <h2>Permissions, and exactly what each is for</h2>
     <table>
     <thead>

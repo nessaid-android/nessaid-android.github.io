@@ -613,7 +613,7 @@ window.NAS_CATALOG = {
       tagline: 'Durak, both ways, for two to six phones.',
       short: 'Durak for two to six players on their own phones: Podkidnoy or Perevodnoy, beat every card or pick up, and do not be the fool.',
       icon: '/assets/img/cards/durak.png',
-      status: 'in-development',
+      status: 'coming-soon',
       play: null,
       privacy: true,
       together: true,
@@ -628,7 +628,20 @@ window.NAS_CATALOG = {
         { slug: 'lost-touch', title: 'When a phone loses touch', summary: 'If a phone drops out, the table waits for it, and the host decides: wait for that player, or drop them and play on.' },
         { slug: 'share-a-win', title: 'Sharing a win', summary: 'When you win a game, Share makes an "I won!" card with the final table, and Android\'s share sheet sends it wherever you choose.' }
       ],
-      videos: []
+      videos: [
+        { youtube: 'u2YYAiUP3oQ', short: true, src: '/cards/durak/videos/files/promo-1.0.0.mp4',
+          title: 'Durak Express',
+          summary: 'Durak in both its classic forms, Podkidnoy and Perevodnoy, for two to six phones, no internet: one hosts, the others join, and bots fill a short table.' },
+        { youtube: '_mEH8rZLEnI', short: true, src: '/cards/durak/videos/files/explain-hosting.mp4',
+          title: 'How to host a table',
+          summary: 'Choose how the phones reach each other and open the table, read its code out or let the others scan it, seat a bot if you are short of players, choose the game and start.' },
+        { youtube: 'PvhZXUqj06U', src: '/cards/durak/videos/files/explain-bluetooth.mp4',
+          title: 'Two phones over Bluetooth, no network at all',
+          summary: 'Two phones never paired, with Wi-Fi and mobile data off: one hosts and reads its code out, the other types it and sits down.' },
+        { youtube: 'HJRiW7mQt8k', short: true, src: '/cards/durak/videos/files/explain-durak.mp4',
+          title: 'How to play Durak',
+          summary: 'Six cards each and a trump turned up: beat every card with a higher one or a trump, or pick them all up. Others throw in, Perevodnoy passes the attack on, and the last player holding cards is the durak.' }
+      ]
     },
     {
       slug: 'truco',
@@ -678,7 +691,7 @@ window.NAS_CATALOG = {
       tagline: 'Beat it higher, bomb the twos, and go out first.',
       short: 'Tiến lên, Vietnam\'s own card game, for two to four players on their own phones: runs, runs of pairs, the bombs that beat the twos, and the race to go out.',
       icon: '/assets/img/cards/tien-len.png',
-      status: 'in-development',
+      status: 'coming-soon',
       play: null,
       privacy: true,
       together: true,
@@ -693,7 +706,20 @@ window.NAS_CATALOG = {
         { slug: 'lost-touch', title: 'When a phone loses touch', summary: 'If a phone drops out, the table waits for it, and the host decides: wait for that player, or drop them and play on.' },
         { slug: 'share-a-win', title: 'Sharing a win', summary: 'When you win a game, Share makes an "I won!" card with the final table, and Android\'s share sheet sends it wherever you choose.' }
       ],
-      videos: []
+      videos: [
+        { youtube: 'KgH1tPUDxYM', short: true, src: '/cards/tien-len/videos/files/promo-1.0.0.mp4',
+          title: 'Tien Len Express',
+          summary: 'Tiến lên, Vietnam\'s own card game, for two to four phones, no internet: one hosts, the others join, and bots fill a short table.' },
+        { youtube: '9dorcTO67yQ', short: true, src: '/cards/tien-len/videos/files/explain-hosting.mp4',
+          title: 'How to host a table',
+          summary: 'Choose how the phones reach each other and how many play, open the table, read its code out or let the others scan it, seat a bot if you are short of players, and start.' },
+        { youtube: '4NqRSRpAsHE', src: '/cards/tien-len/videos/files/explain-bluetooth.mp4',
+          title: 'Two phones over Bluetooth, no network at all',
+          summary: 'Two phones never paired, with Wi-Fi and mobile data off: one hosts and reads its code out, the other types it and sits down.' },
+        { youtube: 'OeHRLllSaFk', short: true, src: '/cards/tien-len/videos/files/explain-tienlen.mp4',
+          title: 'How to play Tien Len',
+          summary: 'Thirteen cards each, threes lowest and twos highest: beat the last play with the same kind, higher, or pass. Runs, runs of pairs, and the bombs that beat the twos; first out wins.' }
+      ]
     },
     {
       slug: '2048-puzzle',
