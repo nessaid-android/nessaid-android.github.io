@@ -816,9 +816,9 @@ window.NAS_CATALOG = {
       facts: [['Players', 'Up to 6: you, bots, or nearby phones'], ['Frames', '10, scored the real way'], ['Views', "The bowler's, or from above"], ['Replays', 'Every finished game; up to 50 saved'], ['Speed', '0.5x to 2x'], ['Practice', 'A lane whose turn factor and length you set'], ['Requires', 'Android 8.0 or later'], ['Languages', '33'], ['Price', 'Free, contains ads']],
       help: [],
       videos: [
-        { youtube: 'kVqNezegogw', short: true, title: 'What it does',
-          summary: 'A strike with the chalk on, a hook, a swipe begun outside the lane going down the gutter, two of the swipes How to swipe shows, and the lane from above.' },
-        { youtube: 'HcAYb_cPXGs', short: true, title: 'How to swipe',
+        { youtube: 'PKzq1LbHZ3E', short: true, title: 'What it does',
+          summary: 'A slanted strike with the chalk on, a ball out and back into the pocket on the oiled lane, a swipe begun outside the lane going down the gutter, two of the swipes How to swipe shows, and a hooked strike from above.' },
+        { youtube: 'qT86OifEbhE', short: true, title: 'How to swipe',
           summary: 'The game\'s own How to swipe screen, on the lane as the bowler sees it: twelve swipes, each drawn in chalk and then bowled - where the ball starts, which way is straight, the slant, the hook, the power - and two of them again on three lanes to show what the turn factor is.' },
         { youtube: 'Kesrn1K3KEA', title: 'Two phones, one game',
           summary: 'A game hosted on one phone and joined from another, both screens side by side: over Wi-Fi by scanning the code, then over Bluetooth by typing it.' },
