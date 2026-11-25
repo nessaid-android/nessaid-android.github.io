@@ -188,7 +188,7 @@ Add an entry to `products` in `catalog.js`, write the long description in the ne
 ### Running ads
 
 A dialog - a picture, a title, a description, OK, Cancel and a "Don't show
-again" tick - put up inside the apps, with no release of any of them. Two files
+these again" tick - put up inside the apps, with no release of any of them. Two files
 each:
 
 | File | Who reads it |
@@ -215,7 +215,7 @@ The entry:
 
 | Key | |
 |---|---|
-| `id` | lowercase letters, digits, hyphens; the content's file name. **A new campaign is a new id**: a phone remembers by id what it was told never to show again |
+| `id` | lowercase letters, digits, hyphens; the content's file name. **A new campaign is a new id**: a phone counts by id what it has been shown |
 | `from`, `to` | first and last day, by each phone's own date. Both are needed |
 | `region` | `all`, or countries: `"IN,AE"`, `"all,!US"`. A phone that gives no country gets only `all` |
 | `receiver` | the apps it is shown **in**: `all`, `games` (card games too), `cards`, `utilities`, slugs, packages; `!` takes away, `"games,!bowling"` |
@@ -251,9 +251,13 @@ ad, and `rate` in an ad's content for that one, key by key:
 | `gap_hours` | least hours from any other running ad, 0..720 | 4 |
 
 Each is counted by one app on one phone: the apps share nothing, so a greeting
-to `all` is shown by every one of them a phone has. "Don't show again" ends the
-ad in that app, and nothing else on the dialog does: OK does its operation, or
-closes when there is none, and Cancel closes. To take one back, remove its entry and
+to `all` is shown by every one of them a phone has.
+
+What the buttons do: OK does the operation, if there is one, and closes; Cancel
+closes. Either way the ad is shown again at its next slot, as its rate allows.
+"Don't show these again", ticked, counts whichever of them it is left by: that
+app shows no ad of that **type** again, newer ones included, and goes on with
+the other types, the network's ads and the house ads. To take one back, remove its entry and
 publish: the apps hear within a day.
 
 ### Screenshots
