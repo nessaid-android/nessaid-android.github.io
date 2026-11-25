@@ -28,7 +28,7 @@ Run from the repository root:
       and tools/running_ads.json as its "running_ads", the dialogs the apps
       put up; those two are the parts edited by hand.
 
-  python tools/site.py runningad <id> <app|greeting|notification>
+  python tools/site.py runningad <id> <app|greeting|notification|tip>
       Starts assets/data/running_ads/<id>.json, a running ad's content. Fill it
       in, add its entry to tools/running_ads.json, then 'published'. See
       "Running ads" in README.md.
@@ -258,7 +258,7 @@ RUNNING_AD = {
     "priority": (int, None),
 }
 RUNNING_AD_NEEDS = ("id", "from", "to", "receiver", "type")
-RUNNING_AD_TYPES = ("app", "greeting", "notification")
+RUNNING_AD_TYPES = ("app", "greeting", "notification", "tip")
 RUNNING_AD_WHEN = ("on_start", "on_interstitial")
 RUNNING_AD_MOST = 50
 

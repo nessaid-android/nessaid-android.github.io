@@ -219,7 +219,7 @@ The entry:
 | `from`, `to` | first and last day, by each phone's own date. Both are needed |
 | `region` | `all`, or countries: `"IN,AE"`, `"all,!US"`. A phone that gives no country gets only `all` |
 | `receiver` | the apps it is shown **in**: `all`, `games` (card games too), `cards`, `utilities`, slugs, packages; `!` takes away, `"games,!bowling"` |
-| `type` | what kind of ad. `app` advertises `apps`; `greeting` and `notification` are messages, and say what their content says |
+| `type` | what kind of ad. `app` advertises `apps`; `greeting`, `notification` and `tip` are messages, and say what their content says |
 | `apps` | type `app` alone: **whose** ads, written as `receiver` is. Each showing is about one of them that is on Play and not on the phone; with none, it is not shown |
 | `when` | `on_start` (as the app is opened; the default), `on_interstitial` (in the place of a full-screen ad), or both with a comma |
 | `priority` | optional, 0: the higher is tried first when two are due |
@@ -252,7 +252,8 @@ ad, and `rate` in an ad's content for that one, key by key:
 
 Each is counted by one app on one phone: the apps share nothing, so a greeting
 to `all` is shown by every one of them a phone has. "Don't show again" ends the
-ad in that app; so does OK on a message. To take one back, remove its entry and
+ad in that app, and nothing else on the dialog does: OK does its operation, or
+closes when there is none, and Cancel closes. To take one back, remove its entry and
 publish: the apps hear within a day.
 
 ### Screenshots
