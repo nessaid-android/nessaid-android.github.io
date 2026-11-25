@@ -25,7 +25,13 @@ Run from the repository root:
       going live is one commit here rather than a re-release of every app.
       The file also carries tools/house_settings.json as its "settings" - how
       the apps' house ads behave, and whether they ask an ad network at all -
-      which is the one part edited by hand.
+      and tools/running_ads.json as its "running_ads", the dialogs the apps
+      put up; those two are the parts edited by hand.
+
+  python tools/site.py runningad <id> <app|greeting|notification>
+      Starts assets/data/running_ads/<id>.json, a running ad's content. Fill it
+      in, add its entry to tools/running_ads.json, then 'published'. See
+      "Running ads" in README.md.
 
   python tools/site.py check
       Reports products whose folders, help pages or privacy pages disagree with
@@ -220,7 +226,68 @@ HOUSE_SETTINGS = {
     # of 4 Nov 2026 or later; older ones obey the three above alone.
     "networks": (dict, None),
     "network_overrides": (dict, None),
+    # How often a running ad is shown, for every ad that does not say itself
+    # (RATE below; running_ads, 25 Nov 2026).
+    "running_ads_rate": (dict, None),
 }
+
+# How often a running ad is shown: "running_ads_rate" in house_settings.json is
+# every ad's default, and "rate" in an ad's own content is its own, key by key.
+# The apps clamp to the same ranges (RunningRate in nessaid_ads), and with
+# neither they use after_days 2, per_day 1, every_hours 72, times 0, gap_hours 4.
+RATE = {
+    "after_days": (int, (0, 90)),          # days since the app was installed
+    "per_day": (int, (1, 10)),             # showings of the ad in a day
+    "every_hours": (int, (1, 60 * 24)),    # from one showing of it to the next
+    "times": (int, (0, 100)),              # showings of it in all; 0 is no limit
+    "gap_hours": (int, (0, 30 * 24)),      # from any other running ad
+}
+
+# tools/running_ads.json. "type" is what kind of ad it is: "app" advertises
+# "apps", one that is not on the phone each time; the others are messages. An
+# app too old to know a type takes it for a message, so a new one is safe.
+RUNNING_AD = {
+    "id": (str, None),
+    "from": (str, None),
+    "to": (str, None),
+    "region": ((str, list), None),
+    "receiver": ((str, list), None),
+    "type": (str, None),
+    "apps": ((str, list), None),
+    "when": ((str, list), None),
+    "priority": (int, None),
+}
+RUNNING_AD_NEEDS = ("id", "from", "to", "receiver", "type")
+RUNNING_AD_TYPES = ("app", "greeting", "notification")
+RUNNING_AD_WHEN = ("on_start", "on_interstitial")
+RUNNING_AD_MOST = 50
+
+# assets/data/running_ads/<id>.json
+RUNNING_AD_CONTENT = {
+    "_comment": (str, None),
+    "id": (str, None),
+    "picture": (str, None),
+    "color": (str, None),
+    "operation": (dict, None),
+    "rate": (dict, None),
+    "texts": (dict, None),
+    "apps": (dict, None),
+}
+RUNNING_AD_TEXT = {
+    "title": (str, None),
+    "description": (str, None),
+    "ok": (str, None),
+    "cancel": (str, None),
+    "never": (str, None),
+    "picture": (str, None),
+}
+RUNNING_AD_OPERATIONS = ("none", "play", "open", "url")
+RUNNING_ADS_DIR = os.path.join("assets", "data", "running_ads")
+PICTURE_MOST = 1024 * 1024
+
+# The languages the family's apps are in, as they spell them.
+LANGUAGES = ("en", "ar", "bn", "de", "es", "fil", "fr", "hi", "in", "it", "ja", "ko", "ml", "nl",
+             "pl", "pt", "pt-BR", "ru", "ta", "th", "tr", "uk", "ur", "vi", "zh", "zh-TW")
 
 # The names "networks" and "network_overrides" may use: the networks the
 # library knows. A typo would otherwise be a network nobody asks about.
@@ -254,19 +321,19 @@ PROMO_INTERSTITIAL = {
 }
 
 
-def check_keys(where, values, known):
+def check_keys(where, values, known, name="house_settings.json"):
     """Each key of values known, of its type and in its range; exits otherwise."""
     for key, value in values.items():
         if key not in known:
-            sys.exit("house_settings.json: unknown key '%s%s' - the apps would ignore it"
-                     % (where, key))
+            sys.exit("%s: unknown key '%s%s' - the apps would ignore it" % (name, where, key))
         kind, limits = known[key]
         # bool is an int in Python, so 'true' would pass for a percentage.
         if not isinstance(value, kind) or (kind is int and isinstance(value, bool)):
-            sys.exit("house_settings.json: %s%s must be %s" % (where, key, kind.__name__))
+            kinds = kind if isinstance(kind, tuple) else (kind,)
+            sys.exit("%s: %s%s must be %s"
+                     % (name, where, key, " or ".join(k.__name__ for k in kinds)))
         if limits and not limits[0] <= value <= limits[1]:
-            sys.exit("house_settings.json: %s%s must be %d..%d"
-                     % (where, key, limits[0], limits[1]))
+            sys.exit("%s: %s%s must be %d..%d" % (name, where, key, limits[0], limits[1]))
 
 
 def check_promo(promo):
@@ -311,6 +378,7 @@ def house_settings():
     check_keys("", settings, HOUSE_SETTINGS)
     if "promo" in settings:
         check_promo(settings["promo"])
+    check_keys("running_ads_rate.", settings.get("running_ads_rate", {}), RATE)
     # The apps drop a weight that is not a whole number (the app then weighs
     # 1) and clamp one out of range: both refused here, where they are heard.
     for slug, weight in settings.get("weights", {}).items():
@@ -354,6 +422,212 @@ def house_settings():
     return settings
 
 
+def words(value):
+    """A list as the apps read one: text with commas, or an array of text."""
+    items = value.split(",") if isinstance(value, str) else value
+    return [item.strip() for item in items if isinstance(item, str) and item.strip()]
+
+
+def check_targets(where, value):
+    """"receiver" or "apps": categories, slugs and packages, each maybe after a "!"."""
+    found = words(value)
+    if not found:
+        sys.exit("%s: is empty" % where)
+    plays = dict(catalog_play())
+    for word in found:
+        bare = word.lstrip("!").strip()
+        if bare in ("all", "games", "cards", "utilities", "apps") or bare in plays:
+            continue
+        if re.fullmatch(r"[a-z][a-z0-9_]*(\.[a-z][a-z0-9_]*)+", bare):
+            if bare not in plays.values():
+                print("note: %s names package %s, which catalog.js has no Play link for"
+                      % (where, bare))
+            continue
+        sys.exit("%s names '%s', which is no category (all, games, cards, utilities), no slug in"
+                 " catalog.js and no package" % (where, word))
+
+
+def check_region(where, value):
+    for word in words(value):
+        if word.lower() != "all" and not re.fullmatch(r"!?[A-Za-z]{2}", word):
+            sys.exit("%s names '%s'; a country is two letters, IN or !IN, or it is \"all\""
+                     % (where, word))
+
+
+def check_picture(where, picture):
+    if not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9_-]{0,79}\.(png|webp|jpg|jpeg)", picture):
+        sys.exit("%s: '%s' is not a .png, .webp or .jpg beside the content" % (where, picture))
+    path = os.path.join(ROOT, RUNNING_ADS_DIR, picture)
+    if not os.path.exists(path):
+        sys.exit("%s: there is no %s" % (where, os.path.relpath(path, ROOT).replace(os.sep, "/")))
+    size = os.path.getsize(path)
+    if size > PICTURE_MOST:
+        sys.exit("%s: %s is %d KB, and the apps take %d" % (where, picture, size // 1024,
+                                                           PICTURE_MOST // 1024))
+    if size > 300 * 1024:
+        print("note: %s is %d KB; every phone it is for fetches it" % (picture, size // 1024))
+
+
+def check_operation(where, operation):
+    kind = operation.get("type")
+    if kind not in RUNNING_AD_OPERATIONS:
+        sys.exit("%s.type must be one of: %s" % (where, ", ".join(RUNNING_AD_OPERATIONS)))
+    known = {"type": (str, None)}
+    if kind == "url":
+        known["url"] = (str, None)
+        if not str(operation.get("url", "")).startswith("https://"):
+            sys.exit("%s.url must start with https:// - the apps open nothing else" % where)
+    elif kind in ("play", "open"):
+        known["package"] = (str, None)
+    check_keys("operation.", operation, known, where)
+
+
+def check_part(where, part, slug):
+    """The top of a content file, or one app's own under "apps"."""
+    if "picture" in part:
+        check_picture(where, part["picture"])
+    if "color" in part and not re.fullmatch(r"#[0-9A-Fa-f]{6}", part["color"]):
+        sys.exit("%s: color must be #RRGGBB" % where)
+    if "operation" in part:
+        check_operation(where + ": operation", part["operation"])
+    for language, texts in part.get("texts", {}).items():
+        if not isinstance(texts, dict):
+            sys.exit("%s: texts.%s must be an object" % (where, language))
+        if not re.fullmatch(r"[a-z]{2,3}(-[A-Z]{2})?", language):
+            sys.exit("%s: texts.%s is not a language as the apps spell them" % (where, language))
+        check_keys("texts.%s." % language, texts, RUNNING_AD_TEXT, where)
+        if "picture" in texts:
+            check_picture(where + ": texts." + language, texts["picture"])
+
+
+def check_content(ad):
+    """assets/data/running_ads/<id>.json, for the entry ad; exits on anything the apps would drop."""
+    name = "%s.json" % ad["id"]
+    path = os.path.join(ROOT, RUNNING_ADS_DIR, name)
+    if not os.path.exists(path):
+        sys.exit("running_ads.json: %s has no %s - start it with: python tools/site.py runningad"
+                 " %s %s" % (ad["id"], os.path.relpath(path, ROOT).replace(os.sep, "/"),
+                             ad["id"], ad["type"]))
+    try:
+        content = json.loads(read(path))
+    except ValueError as e:
+        sys.exit("%s: is not JSON: %s" % (name, e))
+    if not isinstance(content, dict):
+        sys.exit("%s: must be an object" % name)
+    if os.path.getsize(path) > 128 * 1024:
+        sys.exit("%s: is over the 128 KB the apps take" % name)
+    check_keys("", content, RUNNING_AD_CONTENT, name)
+    if content.get("id") != ad["id"]:
+        sys.exit("%s: its id must be \"%s\"" % (name, ad["id"]))
+    check_keys("rate.", content.get("rate", {}), RATE, name)
+    check_part(name, content, None)
+    slugs = set(slug for slug, _ in catalog_play())
+    for slug, own in content.get("apps", {}).items():
+        if slug not in slugs:
+            sys.exit("%s: apps names '%s', which is not a slug in catalog.js" % (name, slug))
+        if not isinstance(own, dict):
+            sys.exit("%s: apps.%s must be an object" % (name, slug))
+        check_keys("apps.%s." % slug, own,
+                   {k: RUNNING_AD_CONTENT[k] for k in ("picture", "color", "operation", "texts")},
+                   name)
+        check_part("%s: apps.%s" % (name, slug), own, slug)
+    texts = content.get("texts", {})
+    if ad["type"] != "app":
+        if "apps" in content:
+            sys.exit("%s: \"apps\" is for type app" % name)
+        for language, own in texts.items():
+            if not (own.get("title", "").strip() or own.get("description", "").strip()):
+                sys.exit("%s: texts.%s has no title and no description; fill it in or take the"
+                         " language out, and it is in English there" % (name, language))
+        if not texts:
+            sys.exit("%s: a %s needs texts" % (name, ad["type"]))
+    if texts and "en" not in texts and ad["type"] != "app":
+        print("note: %s has no English, so it is shown in %s alone" % (name, ", ".join(texts)))
+    elif texts:
+        missing = [language for language in LANGUAGES if language not in texts
+                   and not (language == "pt-BR" and "pt" in texts)
+                   and not (language == "zh-TW" and "zh" in texts)]
+        if missing:
+            print("note: %s is in English for: %s" % (name, ", ".join(missing)))
+
+
+def running_ads():
+    """tools/running_ads.json, checked with the content of each; those that are over left out."""
+    path = os.path.join(ROOT, "tools", "running_ads.json")
+    if not os.path.exists(path):
+        return []
+    entries = json.loads(read(path))
+    if not isinstance(entries, list):
+        sys.exit("running_ads.json: must be an array")
+    today = datetime.date.today()
+    out, seen = [], set()
+    for n, ad in enumerate(entries):
+        if not isinstance(ad, dict):
+            sys.exit("running_ads.json: entry %d must be an object" % (n + 1))
+        name = "running_ads.json: %s" % ad.get("id", "entry %d" % (n + 1))
+        check_keys("", ad, RUNNING_AD, name)
+        for key in RUNNING_AD_NEEDS:
+            if key not in ad:
+                sys.exit("%s: has no \"%s\" - the apps ignore an ad without it" % (name, key))
+        if not re.fullmatch(r"[a-z0-9][a-z0-9-]{0,63}", ad["id"]):
+            sys.exit("%s: an id is lowercase letters, digits and hyphens" % name)
+        if ad["id"] in seen:
+            sys.exit("%s: is there twice" % name)
+        seen.add(ad["id"])
+        dates = []
+        for key in ("from", "to"):
+            try:
+                dates.append(datetime.date.fromisoformat(ad[key]))
+            except ValueError:
+                sys.exit("%s: %s must be a date, YYYY-MM-DD" % (name, key))
+        if dates[0] > dates[1]:
+            sys.exit("%s: ends before it begins" % name)
+        if ad["type"] not in RUNNING_AD_TYPES:
+            sys.exit("%s: type must be one of: %s" % (name, ", ".join(RUNNING_AD_TYPES)))
+        if ad["type"] == "app" and "apps" not in ad:
+            sys.exit("%s: type app needs \"apps\", whose ads to show" % name)
+        if ad["type"] != "app" and "apps" in ad:
+            sys.exit("%s: \"apps\" is for type app; a %s is not about any" % (name, ad["type"]))
+        check_targets(name + ": receiver", ad["receiver"])
+        if "apps" in ad:
+            check_targets(name + ": apps", ad["apps"])
+        check_region(name + ": region", ad.get("region", "all"))
+        for word in words(ad.get("when", "on_start")):
+            if word not in RUNNING_AD_WHEN:
+                sys.exit("%s: when must be of: %s" % (name, ", ".join(RUNNING_AD_WHEN)))
+        check_content(ad)
+        if dates[1] < today:
+            print("note: %s ended on %s; left out" % (ad["id"], dates[1]))
+            continue
+        out.append(ad)
+    if len(out) > RUNNING_AD_MOST:
+        sys.exit("running_ads.json: %d ads, and the apps read %d" % (len(out), RUNNING_AD_MOST))
+    return out
+
+
+def cmd_runningad(ad_id, kind):
+    """A content file to fill in: every language's place for a message, English alone for an app."""
+    if not re.fullmatch(r"[a-z0-9][a-z0-9-]{0,63}", ad_id):
+        die("an id is lowercase letters, digits and hyphens: " + ad_id)
+    if kind not in RUNNING_AD_TYPES:
+        die("type must be one of: " + ", ".join(RUNNING_AD_TYPES))
+    if kind == "app":
+        # Nothing in it: the apps' own words, icons and Play links, in every
+        # language, are in the catalogue the apps carry.
+        content = {"id": ad_id, "texts": {}}
+    else:
+        content = {"id": ad_id, "operation": {"type": "none"}, "texts": {
+            language: {"title": "", "description": "", "ok": "", "cancel": ""}
+            for language in LANGUAGES}}
+    write_new(os.path.join(ROOT, RUNNING_ADS_DIR, ad_id + ".json"),
+              json.dumps(content, indent=2, ensure_ascii=False) + "\n")
+    print("then add it to tools/running_ads.json, for example:")
+    print(json.dumps({"id": ad_id, "from": datetime.date.today().isoformat(),
+                      "to": (datetime.date.today() + datetime.timedelta(days=30)).isoformat(),
+                      "region": "all", "receiver": "all", "type": kind,
+                      **({"apps": "cards"} if kind == "app" else {}), "when": "on_start"}))
+
+
 def cmd_published():
     """Writes assets/data/published.json, which the Android apps read.
 
@@ -375,7 +649,7 @@ def cmd_published():
     """
     entries = [(slug, play) for slug, play in catalog_play() if play]
     lines = ['{',
-             '  "_comment": "Generated by tools/site.py published - do not edit. Sources: assets/js/catalog.js, tools/house_settings.json",',
+             '  "_comment": "Generated by tools/site.py published - do not edit. Sources: assets/js/catalog.js, tools/house_settings.json, tools/running_ads.json",',
              '  "updated": "%s",' % datetime.date.today().isoformat()]
     # Before "apps", and that order is only for whoever reads the file: the
     # apps look both up by name. Builds from before 8 Oct 2026 read "apps"
@@ -389,6 +663,14 @@ def cmd_published():
             lines.append('    "%s": %s%s' % (key, json.dumps(settings[key]),
                                              '' if n == len(keys) - 1 else ','))
         lines.append('  },')
+    # Read by builds with the library of 25 Nov 2026 or later; older ones never
+    # look. Enough of each ad for a phone to know it is not for it, and no more:
+    # what it says is in running_ads/<id>.json, fetched by those it is for.
+    ads = running_ads()
+    lines.append('  "running_ads": [')
+    for n, ad in enumerate(ads):
+        lines.append('    %s%s' % (json.dumps(ad), '' if n == len(ads) - 1 else ','))
+    lines.append('  ],')
     lines.append('  "apps": {')
     for n, (slug, play) in enumerate(sorted(entries)):
         lines.append('    "%s": "%s"%s' % (slug, play, '' if n == len(entries) - 1 else ','))
@@ -400,6 +682,11 @@ def cmd_published():
     with io.open(path, "w", encoding="utf-8", newline="\n") as handle:
         handle.write("\n".join(lines) + "\n")
     print("published.json: %d live of %d products" % (len(entries), len(catalog_play())))
+    # The apps read no more than 64 KB of it, and drop the whole file past that.
+    size = os.path.getsize(path)
+    if size > 48 * 1024:
+        sys.exit("published.json is %d KB; the apps take 64. Take out running ads." % (size // 1024))
+    print("running ads: %s" % (", ".join(ad["id"] for ad in ads) or "none"))
     print("settings: %s" % (json.dumps(settings) if settings is not None
                             else "none - no tools/house_settings.json"))
 
@@ -452,6 +739,7 @@ COMMANDS = {
     "privacy": (cmd_privacy, 2),
     "sitemap": (cmd_sitemap, 0),
     "published": (cmd_published, 0),
+    "runningad": (cmd_runningad, 2),
     "check": (cmd_check, 0),
     "serve": (cmd_serve, None),
 }

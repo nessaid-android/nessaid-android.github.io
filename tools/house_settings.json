@@ -5,6 +5,13 @@
   "share_cooloff_minutes": 10,
   "hidden": [],
   "house_hold_on_fail": true,
+  "running_ads_rate": {
+    "after_days": 2,
+    "per_day": 1,
+    "every_hours": 72,
+    "times": 0,
+    "gap_hours": 4
+  },
   "promo": {
     "until": "2026-12-01",
     "share_percent": 25,
