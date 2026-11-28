@@ -81,6 +81,21 @@ window.NAS_CATALOG = {
       videos: []
     },
     {
+      slug: 'phone-guard',
+      section: 'apps',
+      name: 'Phone Guard',
+      tagline: 'An alarm when something about your phone changes.',
+      short: 'Rings when the charger is pulled, the phone is moved or taken from a pocket, earbuds are left behind, or you leave or reach a place by its Wi-Fi.',
+      icon: '/assets/img/apps/phone-guard.png',
+      status: 'in-development',
+      play: null,
+      privacy: true,
+      tags: ['Anti-theft', 'Alarms'],
+      facts: [['Requires', 'Android 8.0 or later'], ['Languages', '26'], ['Price', 'Free, contains ads']],
+      help: [],
+      videos: []
+    },
+    {
       slug: 'alarm-clock',
       section: 'apps',
       name: 'Alarm Clock Ultimate',
@@ -679,6 +694,30 @@ window.NAS_CATALOG = {
           title: 'How to play Truco',
           summary: 'Three cards each, the best two of three tricks take the hand, and any hand can be raised: Truco, Seis, Nove, Doze in Brazil; Truco, Retruco, Vale Cuatro, with the envido, in Argentina.' }
       ]
+    },
+    {
+      slug: 'spanish-deck',
+      section: 'cards',
+      name: 'Baraja Española: Spanish Deck',
+      tagline: 'Thirteen games of the Spanish pack.',
+      short: 'Brisca, Tute, Guiñote, Escoba, Cinquillo, Chinchón, Mus, Sueca, Butifarra, Pocha, Ronda, Siete y medio and Julepe, against bots or with the phones at your table.',
+      icon: '/assets/img/cards/spanish-deck.png',
+      status: 'in-development',
+      play: null,
+      privacy: true,
+      together: true,
+      tags: ['Cards', 'Bluetooth', 'No internet', 'Play nearby'],
+      facts: [['Games', '13'], ['Players', '2 to 6, by game; bots fill the rest'], ['Languages', '14'], ['Internet', 'Not needed'], ['Connects over', 'Bluetooth, Wi-Fi or Nearby'], ['Real money', 'None']],
+      help: [
+        { slug: 'rules', title: 'The rules of the thirteen games', summary: 'Brisca, Tute, Guiñote, Escoba, Cinquillo, Chinchón, Mus, Sueca, Butifarra, Pocha, Ronda, Siete y medio and Julepe, as the app plays them.' },
+        { slug: 'host-a-table', title: 'Host a table', summary: 'One phone hosts the table: it deals, and the others join it.' },
+        { slug: 'join-a-table', title: 'Join a table', summary: 'Tap Join a table and choose the same way the host chose.' },
+        { slug: 'ways-to-connect', title: 'Ways to connect', summary: 'Wi-Fi: every phone on the same Wi-Fi network.' },
+        { slug: 'bots', title: 'Bots', summary: 'A bot is a player with no phone: the host\'s phone plays for it.' },
+        { slug: 'lost-touch', title: 'When a phone loses touch', summary: 'If a phone drops out, the table waits for it, and the host decides: wait for that player, or drop them and play on.' },
+        { slug: 'share-a-win', title: 'Sharing a win', summary: 'When you win a game, Share makes an "I won!" card with the final table, and Android\'s share sheet sends it wherever you choose.' }
+      ],
+      videos: []
     },
 
     // ------------------------------------------------------------ games
